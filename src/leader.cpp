@@ -504,9 +504,9 @@ CON_COMMAND_CHAT(vl, "<name> - Vote for a player to become a leader")
 
 		Message("%s was voted for Leader with %i vote(s). LeaderIndex = %i\n", pTarget->GetPlayerName(), iNeededLeaderVoteCount, g_iLeaderIndex);
 
-		ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "%s is now a Leader!", pTarget->GetPlayerName());
+		ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "%s \xE7\x8E\xB0\xE5\x9C\xA8\xE6\x98\xAF\xE6\x8C\x87\xE6\x8C\xA5!", pTarget->GetPlayerName());
 		
-		ClientPrint(pTarget, HUD_PRINTTALK, CHAT_PREFIX "You became a leader! Use !leaderhelp and !leadercolors commands to list available leader commands and colors");
+		ClientPrint(pTarget, HUD_PRINTTALK, CHAT_PREFIX "\xE4\xBD\xA0\xE6\x88\x90\xE4\xB8\xBA\xE4\xBA\x86\xE6\x8C\x87\xE6\x8C\xA5\x2C\xE4\xBD\xBF\xE7\x94\xA8\x21\x6C\x65\x61\x64\x65\x72\x68\x65\x6C\x70\x20\xE5\x92\x8C\x20\x21\x6C\x65\x61\x64\x65\x72\x63\x6F\x6C\x6F\x72\x73\xE5\x91\xBD\xE4\xBB\xA4\xE6\x9D\xA5\xE5\x88\x97\xE5\x87\xBA\xE5\x8F\xAF\xE7\x94\xA8\xE7\x9A\x84\xE6\x8C\x87\xE6\x8C\xA5\xE5\x91\xBD\xE4\xBB\xA4\xE5\x92\x8C\xE9\xA2\x9C\xE8\x89\xB2\xE2\x80\x9D");
 
 		// apply apparent leader perks (like leader model, glow(?)) here
 		// also run a timer somewhere (per player or global) to reapply them
@@ -519,14 +519,14 @@ CON_COMMAND_CHAT(vl, "<name> - Vote for a player to become a leader")
 				player->GetPlayerName(), pTarget->GetPlayerName(), iLeaderVoteCount+1, iNeededLeaderVoteCount);
 }
 
-CON_COMMAND_CHAT(defend, "[name|duration] [duration] - place a defend marker on you or target player")
+CON_COMMAND_CHAT(defend, "[\xE5\x90\x8D\xE5\xAD\x97|\xE6\x8C\x81\xE7\xBB\xAD\xE6\x97\xB6\xE9\x97\xB4] [\xE6\x8C\x81\xE7\xBB\xAD\xE6\x97\xB6\xE9\x97\xB4] - \xE5\x9C\xA8\xE4\xBD\xA0\xE6\x88\x96\xE7\x9B\xAE\xE6\xA0\x87\xE7\x8E\xA9\xE5\xAE\xB6\xE8\xBA\xAB\xE4\xB8\x8A\xE6\x94\xBE\xE7\xBD\xAE\xE9\x98\xB2\xE5\xAE\x88\xE6\xA0\x87\xE8\xAE\xB0")
 {
 	if (!g_bEnableLeader)
 		return;
 
 	if (!player)
 	{
-		ClientPrint(player, HUD_PRINTCONSOLE, CHAT_PREFIX "You cannot use this command from the server console.");
+		ClientPrint(player, HUD_PRINTCONSOLE, CHAT_PREFIX "\xE6\x82\xA8\xE6\x97\xA0\xE6\xB3\x95\xE4\xBB\x8E\xE6\x9C\x8D\xE5\x8A\xA1\xE5\x99\xA8\xE6\x8E\xA7\xE5\x88\xB6\xE5\x8F\xB0\xE4\xBD\xBF\xE7\x94\xA8\xE6\xAD\xA4\xE5\x91\xBD\xE4\xBB\xA4.");
 		return;
 	}
 
@@ -536,13 +536,13 @@ CON_COMMAND_CHAT(defend, "[name|duration] [duration] - place a defend marker on 
 
 	if (!pPlayer->IsLeader())
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You must be a leader to use this command.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x82\xA8\xE5\xBF\x85\xE9\xA1\xBB\xE6\x98\xAF\xE6\x8C\x87\xE6\x8C\xA5\xE6\x89\x8D\xE8\x83\xBD\xE4\xBD\xBF\xE7\x94\xA8\xE6\xAD\xA4\xE5\x91\xBD\xE4\xBB\xA4.");
 		return;
 	}
 
 	if (player->m_iTeamNum != CS_TEAM_CT && g_bLeaderActionsHumanOnly)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You must be a human to use this command.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x82\xA8\xE5\xBF\x85\xE9\xA1\xBB\xE6\x98\xAF\xE4\xBA\xBA\xE7\xB1\xBB\xE6\x89\x8D\xE8\x83\xBD\xE4\xBD\xBF\xE7\x94\xA8\xE6\xAD\xA4\xE5\x91\xBD\xE4\xBB\xA4.");
 		return;
 	}
 
@@ -551,12 +551,12 @@ CON_COMMAND_CHAT(defend, "[name|duration] [duration] - place a defend marker on 
 	{
 		if (player->m_iTeamNum != CS_TEAM_CT)
 		{
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You can only place defend marker on a human.");
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE4\xBD\xA0\xE5\x8F\xAA\xE8\x83\xBD\xE5\x9C\xA8\xE4\xBA\xBA\xE8\xBA\xAB\xE4\xB8\x8A\xE6\x94\xBE\xE7\xBD\xAE\xE9\x98\xB2\xE5\xBE\xA1\xE6\xA0\x87\xE8\xAE\xB0.");
 			return;
 		}
 
 		if (Leader_CreateDefendMarker(pPlayer, LeaderColorMap[pPlayer->GetLeaderIndex()].clColor, 30))
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Placed defend marker on yourself lasting 30 seconds.");
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\x9C\xA8\xE8\x87\xAA\xE5\xB7\xB1\xE8\xBA\xAB\xE4\xB8\x8A\xE6\x94\xBE\xE7\xBD\xAE\xE9\x98\xB2\xE5\xBE\xA1\xE6\xA0\x87\xE8\xAE\xB0\xEF\xBC\x8C\xE6\x8C\x81\xE7\xBB\xAD\x33\x30\xE7\xA7\x92.");
 
 		return;
 	}
