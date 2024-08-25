@@ -138,7 +138,7 @@ float TimerCheckTimeleft()
 				return -1.0f;
 			}
 
-			ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "Extend vote starting in %d....", iVoteStartTicks);
+			ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE5\xB0\x86\xE5\x9C\xA8 %d \xE7\xA7\x92\xE5\xBC\x80\xE5\xA7\x8B....", iVoteStartTicks);
 			iVoteStartTicks--;
 			return 1.0f;
 		}
@@ -217,14 +217,14 @@ int GetNeededExtendCount()
 	return (int)(iOnlinePlayers * g_flExtendBeginRatio) + 1;
 }
 
-CON_COMMAND_CHAT(rtv, "- Vote to end the current map sooner")
+CON_COMMAND_CHAT(rtv, "- \xE5\x8F\x91\xE8\xB5\xB7\xE6\x8D\xA2\xE5\x9B\xBE\xE6\x8A\x95\xE7\xA5\xA8")
 {
 	if (!g_bVoteManagerEnable)
 		return;
 
 	if (!player)
 	{
-		ClientPrint(player, HUD_PRINTCONSOLE, CHAT_PREFIX "You cannot use this command from the server console.");
+		ClientPrint(player, HUD_PRINTCONSOLE, CHAT_PREFIX "\xE6\x82\xA8\xE6\x97\xA0\xE6\xB3\x95\xE4\xBB\x8E\xE6\x9C\x8D\xE5\x8A\xA1\xE5\x99\xA8\xE6\x8E\xA7\xE5\x88\xB6\xE5\x8F\xB0\xE4\xBD\xBF\xE7\x94\xA8\xE6\xAD\xA4\xE5\x91\xBD\xE4\xBB\xA4.");
 		return;
 	}
 
@@ -242,16 +242,16 @@ CON_COMMAND_CHAT(rtv, "- Vote to end the current map sooner")
 	switch (g_RTVState)
 	{
 	case ERTVState::MAP_START:
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "RTV is not open yet.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\x52\x54\x56\xE5\xB0\x9A\xE6\x9C\xAA\xE5\xBC\x80\xE6\x94\xBE.");
 		return;
 	case ERTVState::POST_RTV_SUCCESSFULL:
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "RTV vote already succeeded.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\x52\x54\x56\xE6\x8A\x95\xE7\xA5\xA8\xE5\xB7\xB2\xE6\x88\x90\xE5\x8A\x9F.");
 		return;
 	case ERTVState::POST_LAST_ROUND_END:
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "RTV is closed during next map selection.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE4\xB8\x8B\xE5\xBC\xA0\xE5\x9C\xB0\xE5\x9B\xBE\xE4\xBB\xA5\xE9\x80\x89\xE5\x87\xBA\x2C\x52\x54\x56\xE4\xBB\xA5\xE5\x85\xB3\xE9\x97\xAD.");
 		return;
 	case ERTVState::BLOCKED_BY_ADMIN:
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "RTV has been blocked by an Admin.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\x52\x54\x56\xE5\xB7\xB2\xE8\xA2\xAB\xE7\xAE\xA1\xE7\x90\x86\xE5\x91\x98\xE9\x98\xBB\xE6\xAD\xA2.");
 		return;
 	}
 
@@ -260,14 +260,14 @@ CON_COMMAND_CHAT(rtv, "- Vote to end the current map sooner")
 
 	if (pPlayer->GetRTVVote())
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You have already rocked the vote (%i voted, %i needed).", iCurrentRTVCount, iNeededRTVCount);
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE4\xBD\xA0\xE5\x8F\x91\xE8\xB5\xB7\xE4\xBA\x86\xE6\x8D\xA2\xE5\x9B\xBE\xE6\x8A\x95\xE7\xA5\xA8 (\xE5\xB7\xB2\xE6\x8A\x95 %i ,\xE8\xBF\x98\xE9\x9C\x80 %i ).", iCurrentRTVCount, iNeededRTVCount);
 		return;
 	}
 
 	if (pPlayer->GetRTVVoteTime() + 60.0f > gpGlobals->curtime)
 	{
 		int iRemainingTime = (int)(pPlayer->GetRTVVoteTime() + 60.0f - gpGlobals->curtime);
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Wait %i seconds before you can RTV again.", iRemainingTime);
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE7\xAD\x89\xE5\xBE\x85 %i \xE7\xA7\x92\xE5\x90\x8E \xE6\x89\x8D\xE8\x83\xBD\xE5\x86\x8D\xE6\xAC\xA1\xE5\x8F\x91\xE8\xB5\xB7\x52\x54\x56.", iRemainingTime);
 		return;
 	}
 
@@ -280,7 +280,7 @@ CON_COMMAND_CHAT(rtv, "- Vote to end the current map sooner")
 
 		if (g_bRTVEndRound)
 		{
-			ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "RTV succeeded! Ending the map now...");
+			ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "\x52\x54\x56\xE6\x88\x90\xE5\x8A\x9F\xE4\xBA\x86\xEF\xBC\x81\xE7\x8E\xB0\xE5\x9C\xA8\xE7\xBB\x93\xE6\x9D\x9F\xE5\x9C\xB0\xE5\x9B\xBE...");
 
 			new CTimer(3.0f, false, true, []()
 				{
@@ -291,7 +291,7 @@ CON_COMMAND_CHAT(rtv, "- Vote to end the current map sooner")
 		}
 		else
 		{
-			ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "RTV succeeded! This is the last round of the map!");
+			ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "\x52\x54\x56\xE6\x88\x90\xE5\x8A\x9F\xE4\xBA\x86\xEF\xBC\x81\xE8\xBF\x99\xE6\x98\xAF\xE5\x9C\xB0\xE5\x9B\xBE\xE7\x9A\x84\xE6\x9C\x80\xE5\x90\x8E\xE4\xB8\x80\xE8\xBD\xAE!");
 		}
 
 		for (int i = 0; i < gpGlobals->maxClients; i++)
@@ -306,7 +306,7 @@ CON_COMMAND_CHAT(rtv, "- Vote to end the current map sooner")
 
 	pPlayer->SetRTVVote(true);
 	pPlayer->SetRTVVoteTime(gpGlobals->curtime);
-	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "%s wants to rock the vote (%i voted, %i needed).", player->GetPlayerName(), iCurrentRTVCount + 1, iNeededRTVCount);
+	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "%s \xE5\x8F\x91\xE8\xB5\xB7\xE4\xBA\x86\xE6\x8D\xA2\xE5\x9B\xBE\xE6\x8A\x95\xE7\xA5\xA8 (\xE5\xB7\xB2\xE6\x8A\x95 %i ,\xE8\xBF\x98\xE9\x9C\x80 %i ).", player->GetPlayerName(), iCurrentRTVCount + 1, iNeededRTVCount);
 }
 
 CON_COMMAND_CHAT(unrtv, "- Remove your vote to end the current map sooner")
@@ -717,7 +717,7 @@ bool VoteExtendEndCallback(YesNoVoteInfo info)
 	if (info.num_votes > 0)
 		yes_percent = (float)info.yes_votes / (float)info.num_votes;
 
-	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "Vote ended. Yes received %.2f%% of %d votes (Needed %.2f%%)", yes_percent * 100.0f, info.num_votes, g_flExtendSucceedRatio * 100.0f);
+	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "\xE6\x8A\x95\xE7\xA5\xA8\xE7\xBB\x93\xE6\x9D\x9F. \xE5\xBD\x93\xE5\x89\x8D\xE6\x8A\x95\xE7\xA5\xA8\xE7\x8E\x87 %.2f%% \xE7\xA5\xA8\xE6\x95\xB0\xE4\xB8\xBA %d (\xE9\x9C\x80\xE8\xA6\x81\xE8\xBE\xBE\xE5\x88\xB0 %.2f%%)", yes_percent * 100.0f, info.num_votes, g_flExtendSucceedRatio * 100.0f);
 
 	if (yes_percent >= g_flExtendSucceedRatio)
 	{
@@ -760,7 +760,7 @@ bool VoteExtendEndCallback(YesNoVoteInfo info)
 		}
 
 		g_iExtendsLeft--;
-		ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "Extend vote succeeded! Current map has been extended by %i minutes.", g_iExtendTimeToAdd);
+		ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE6\x88\x90\xE5\x8A\x9F! \xE5\xBD\x93\xE5\x89\x8D\xE5\x9C\xB0\xE5\x9B\xBE\xE4\xBB\xA5\xE5\xBB\xB6\xE9\x95\xBF %i \xE5\x88\x86\xE9\x92\x9F.", g_iExtendTimeToAdd);
 
 		return true;
 	}
@@ -769,7 +769,7 @@ bool VoteExtendEndCallback(YesNoVoteInfo info)
 	g_ExtendState = EExtendState::POST_EXTEND_NO_EXTENDS_LEFT;
 	g_iExtendsLeft = 0;
 
-	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "Extend vote failed! Further extend votes disabled!", g_iExtendTimeToAdd);
+	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE5\xA4\xB1\xE8\xB4\xA5! \xE6\x9B\xB4\xE5\xA4\x9A\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE8\xA2\xAB\xE7\xA6\x81\xE7\x94\xA8!", g_iExtendTimeToAdd);
 
 	return false;
 }
@@ -781,7 +781,7 @@ void StartExtendVote(int iCaller)
 		return;
 
 	char sDetailStr[64];
-	V_snprintf(sDetailStr, sizeof(sDetailStr), "Vote to extend the map for another %d minutes", g_iExtendTimeToAdd);
+	V_snprintf(sDetailStr, sizeof(sDetailStr), "\xE6\x8A\x95\xE7\xA5\xA8\xE5\xB0\x86\xE5\x9C\xB0\xE5\x9B\xBE\xE5\x86\x8D\xE5\xBB\xB6\xE9\x95\xBF %d \xE5\x88\x86\xE9\x92\x9F \xE8\xBE\x93\xE5\x85\xA5\x21\x74\x69\x6D\x65\x6C\x65\x66\x74\xE5\x8F\xAF\xE4\xBB\xA5\xE6\x9F\xA5\xE7\x9C\x8B\xE5\xBD\x93\xE5\x89\x8D\xE5\x9C\xB0\xE5\x9B\xBE\xE5\x89\xA9\xE4\xBD\x99\xE6\x97\xB6\xE9\x97\xB4", g_iExtendTimeToAdd);
 
 	g_ExtendState = EExtendState::IN_PROGRESS;
 
@@ -796,7 +796,7 @@ void StartExtendVote(int iCaller)
 				return -1.0f;
 			}
 
-			ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "Extend vote ending in %d....", iVoteEndTicks);
+			ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "\xE6\x8A\x95\xE7\xA5\xA8\xE5\xBB\xB6\xE9\x95\xBF\xE5\x88\xB0 %d....", iVoteEndTicks);
 			iVoteEndTicks--;
 			return 1.0f;
 		}
