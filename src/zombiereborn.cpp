@@ -1031,7 +1031,7 @@ void SetupCTeams()
 
 void ZR_OnRoundStart(IGameEvent* pEvent)
 {
-	ClientPrintAll(HUD_PRINTTALK, ZR_PREFIX "The game is \x05Humans vs. Zombies\x01, the goal for zombies is to infect all humans by knifing them.");
+	ClientPrintAll(HUD_PRINTTALK, ZR_PREFIX "\u6e38\u620f\u73a9\u6cd5\u003a \x05\u4eba\u7c7b\u0020\u0076\u0073\u0020\u50f5\u5c38\x01,\u50f5\u5c38\u7684\u76ee\u6807\u662f\u4f7f\u7528\u5200\u611f\u67d3\u6240\u6709\u4eba\u7c7b\u002e.");
 	SetupRespawnToggler();
 	CZRRegenTimer::RemoveAllTimers();
 
