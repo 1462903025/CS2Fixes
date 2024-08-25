@@ -126,7 +126,7 @@ float TimerCheckTimeleft()
 
 
 	bVoteStarting = true;
-	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "Extend vote starting in 10 seconds!");
+	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "\x31\x30\xE7\xA7\x92\xE5\x90\x8E\xE5\xBC\x80\xE5\xA7\x8B\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8!");
 
 	new CTimer(7.0f, false, true, []()
 		{
@@ -402,25 +402,25 @@ CON_COMMAND_CHAT(ve, "- Vote to extend current map")
 	switch (g_ExtendState)
 	{
 	case EExtendState::MAP_START:
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Extend vote is not open yet.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE5\xB0\x9A\xE6\x9C\xAA\xE5\xBC\x80\xE6\x94\xBE.");
 		return;
 	case EExtendState::IN_PROGRESS:
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "An extend vote is in progress right now!");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE6\xAD\xA3\xE5\x9C\xA8\xE8\xBF\x9B\xE8\xA1\x8C\xE4\xB8\xAD!");
 		return;
 	case EExtendState::POST_EXTEND_COOLDOWN:
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Extend vote is not open yet.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE5\xB0\x9A\xE6\x9C\xAA\xE5\xBC\x80\xE6\x94\xBE.");
 		return;
 	case EExtendState::POST_EXTEND_NO_EXTENDS_LEFT:
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "There are no extends left for the current map.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\xBD\x93\xE5\x89\x8D\xE5\x9C\xB0\xE5\x9B\xBE\xE6\xB2\xA1\xE6\x9C\x89\xE5\x89\xA9\xE4\xBD\x99\xE7\x9A\x84\xE5\xBB\xB6\xE9\x95\xBF.");
 		return;
 	case EExtendState::POST_LAST_ROUND_END:
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Extend vote is closed during next map selection.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\x9C\xA8\xE4\xB8\x8B\xE6\xAC\xA1\xE5\x9C\xB0\xE5\x9B\xBE\xE9\x80\x89\xE6\x8B\xA9\xE6\x9C\x9F\xE9\x97\xB4\xEF\xBC\x8C\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE5\xB0\x86\xE5\x85\xB3\xE9\x97\xAD.");
 		return;
 	case EExtendState::POST_RTV:
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Extend vote is closed because RTV vote has passed.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE5\xB7\xB2\xE7\xBB\x93\xE6\x9D\x9F\xEF\xBC\x8C\xE5\x9B\xA0\xE4\xB8\xBA\x52\x54\x56\xE6\x8A\x95\xE7\xA5\xA8\xE5\xB7\xB2\xE9\x80\x9A\xE8\xBF\x87.");
 		return;
 	case EExtendState::NO_EXTENDS:
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Extend vote is not allowed for current map.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\xBD\x93\xE5\x89\x8D\xE5\x9C\xB0\xE5\x9B\xBE\xE4\xB8\x8D\xE5\x85\x81\xE8\xAE\xB8\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8.");
 		return;
 	}
 
@@ -429,14 +429,14 @@ CON_COMMAND_CHAT(ve, "- Vote to extend current map")
 
 	if (pPlayer->GetExtendVote())
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You have already voted to extend the map (%i voted, %i needed).", iCurrentExtendCount, iNeededExtendCount);
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x82\xA8\xE5\xB7\xB2\xE7\xBB\x8F\xE6\x8A\x95\xE7\xA5\xA8\xE5\xBB\xB6\xE9\x95\xBF\xE5\x9C\xB0\xE5\x9B\xBE (\xE5\xB7\xB2\xE6\x8A\x95 %i ,\xE8\xBF\x98\xE9\x9C\x80 %i ).", iCurrentExtendCount, iNeededExtendCount);
 		return;
 	}
 
 	if (pPlayer->GetExtendVoteTime() + 60.0f > gpGlobals->curtime)
 	{
 		int iRemainingTime = (int)(pPlayer->GetExtendVoteTime() + 60.0f - gpGlobals->curtime);
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Wait %i seconds before you can vote extend again.", iRemainingTime);
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE8\xAF\xB7\xE7\xAD\x89\xE5\xBE\x85 %i \xE7\xA7\x92\x2C\xE7\x84\xB6\xE5\x90\x8E\xE6\x89\x8D\xE8\x83\xBD\xE5\x86\x8D\xE6\xAC\xA1\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE6\x97\xB6\xE9\x97\xB4.", iRemainingTime);
 		return;
 	}
 
@@ -452,20 +452,20 @@ CON_COMMAND_CHAT(ve, "- Vote to extend current map")
 	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "%s wants to extend the map (%i voted, %i needed).", player->GetPlayerName(), iCurrentExtendCount + 1, iNeededExtendCount);
 }
 
-CON_COMMAND_CHAT(unve, "- Remove your vote to extend current map")
+CON_COMMAND_CHAT(unve, "- \xE5\x8F\x96\xE6\xB6\x88\xE5\xBB\xB6\xE9\x95\xBF\xE5\x9C\xB0\xE5\x9B\xBE\xE6\x8A\x95\xE7\xA5\xA8")
 {
 	if (!g_bVoteManagerEnable)
 		return;
 
 	if (!player)
 	{
-		ClientPrint(player, HUD_PRINTCONSOLE, CHAT_PREFIX "You cannot use this command from the server console.");
+		ClientPrint(player, HUD_PRINTCONSOLE, CHAT_PREFIX "\xE6\x82\xA8\xE6\x97\xA0\xE6\xB3\x95\xE4\xBB\x8E\xE6\x9C\x8D\xE5\x8A\xA1\xE5\x99\xA8\xE6\x8E\xA7\xE5\x88\xB6\xE5\x8F\xB0\xE4\xBD\xBF\xE7\x94\xA8\xE6\xAD\xA4\xE5\x91\xBD\xE4\xBB\xA4.");
 		return;
 	}
 
 	if (g_ExtendVoteMode != EExtendVoteMode::EXTENDVOTE_MANUAL)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Voting to start extend votes is disabled.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE4\xBB\xA5\xE7\xA6\x81\xE7\x94\xA8\xE5\xB7\xB2\xE7\xBB\x8F\xE5\xBC\x80\xE5\xA7\x8B\xE7\x9A\x84\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8.");
 		return;
 	}
 
@@ -482,28 +482,28 @@ CON_COMMAND_CHAT(unve, "- Remove your vote to extend current map")
 
 	if (!pPlayer->GetExtendVote())
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You have not voted to extend current map.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x82\xA8\xE5\xB0\x9A\xE6\x9C\xAA\xE6\x8A\x95\xE7\xA5\xA8\xE5\x86\xB3\xE5\xAE\x9A\xE5\xBB\xB6\xE9\x95\xBF\xE5\xBD\x93\xE5\x89\x8D\xE5\x9C\xB0\xE5\x9B\xBE.");
 		return;
 	}
 
 	pPlayer->SetExtendVote(false);
-	ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You no longer want to extend current map.");
+	ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\x8F\x96\xE6\xB6\x88\xE5\xBB\xB6\xE9\x95\xBF\xE5\xBD\x93\xE5\x89\x8D\xE5\x9C\xB0\xE5\x9B\xBE.");
 }
 
-CON_COMMAND_CHAT_FLAGS(adminve, "Start a vote extend immediately.", ADMFLAG_CHANGEMAP)
+CON_COMMAND_CHAT_FLAGS(adminve, "\xE7\xAB\x8B\xE5\x8D\xB3\xE5\xBC\x80\xE5\xA7\x8B\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8.", ADMFLAG_CHANGEMAP)
 {
 	if (!g_bVoteManagerEnable)
 		return;
 
 	if (g_ExtendVoteMode == EExtendVoteMode::EXTENDVOTE_OFF)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Extend votes are disabled.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE5\xB7\xB2\xE7\xA6\x81\xE7\x94\xA8.");
 		return;
 	}
 
 	if (g_ExtendState == EExtendState::IN_PROGRESS || bVoteStarting)
 	{
-		ClientPrint(player, HUD_PRINTCONSOLE, CHAT_PREFIX "An extend vote is already in progress.");
+		ClientPrint(player, HUD_PRINTCONSOLE, CHAT_PREFIX "\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE5\xB7\xB2\xE5\x9C\xA8\xE8\xBF\x9B\xE8\xA1\x8C\xE4\xB8\xAD.");
 		return;
 	}
 
@@ -514,7 +514,7 @@ CON_COMMAND_CHAT_FLAGS(adminve, "Start a vote extend immediately.", ADMFLAG_CHAN
 	StartExtendVote(slot);
 }
 
-CON_COMMAND_CHAT_FLAGS(disablertv, "- Disable the ability for players to vote to end current map sooner", ADMFLAG_CHANGEMAP)
+CON_COMMAND_CHAT_FLAGS(disablertv, "- \xE7\xA6\x81\xE7\x94\xA8\xE7\x8E\xA9\xE5\xAE\xB6\xE6\x8A\x95\xE7\xA5\xA8\xE4\xBB\xA5\xE6\x9B\xB4\xE5\xBF\xAB\xE7\xBB\x93\xE6\x9D\x9F\xE5\xBD\x93\xE5\x89\x8D\xE5\x9C\xB0\xE5\x9B\xBE\xE7\x9A\x84\xE5\x8A\x9F\xE8\x83\xBD", ADMFLAG_CHANGEMAP)
 {
 	if (!g_bVoteManagerEnable)
 		return;
@@ -522,9 +522,9 @@ CON_COMMAND_CHAT_FLAGS(disablertv, "- Disable the ability for players to vote to
 	if (g_RTVState == ERTVState::BLOCKED_BY_ADMIN)
 	{
 		if (player)
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "RTV is already disabled.");
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\x52\x54\x56\xE5\xB7\xB2\xE7\xA6\x81\xE7\x94\xA8.");
 		else
-			ConMsg("RTV is already disabled.");
+			ConMsg("\x52\x54\x56\xE5\xB7\xB2\xE7\xA6\x81\xE7\x94\xA8.");
 		return;
 	}
 
@@ -535,7 +535,7 @@ CON_COMMAND_CHAT_FLAGS(disablertv, "- Disable the ability for players to vote to
 	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX ADMIN_PREFIX "disabled vote for RTV.", pszCommandPlayerName);
 }
 
-CON_COMMAND_CHAT_FLAGS(enablertv, "- Restore the ability for players to vote to end current map sooner", ADMFLAG_CHANGEMAP)
+CON_COMMAND_CHAT_FLAGS(enablertv, "- \xE6\x81\xA2\xE5\xA4\x8D\xE7\x8E\xA9\xE5\xAE\xB6\xE6\x8A\x95\xE7\xA5\xA8\xE7\x9A\x84\xE8\x83\xBD\xE5\x8A\x9B\xEF\xBC\x8C\xE4\xBB\xA5\xE6\x9B\xB4\xE5\xBF\xAB\xE5\x9C\xB0\xE7\xBB\x93\xE6\x9D\x9F\xE5\xBD\x93\xE5\x89\x8D\xE5\x9C\xB0\xE5\x9B\xBE", ADMFLAG_CHANGEMAP)
 {
 	if (!g_bVoteManagerEnable)
 		return;
@@ -556,7 +556,7 @@ CON_COMMAND_CHAT_FLAGS(enablertv, "- Restore the ability for players to vote to 
 	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX ADMIN_PREFIX "enabled vote for RTV.", pszCommandPlayerName);
 }
 
-CON_COMMAND_CHAT_FLAGS(addextend, "- Add another extend to the current map for players to vote", ADMFLAG_RCON)
+CON_COMMAND_CHAT_FLAGS(addextend, "- \xE8\xAE\xA9\xE7\x8E\xA9\xE5\xAE\xB6\xE6\x8A\x95\xE7\xA5\xA8\xEF\xBC\x8C\xE5\xA2\x9E\xE5\x8A\xA0\xE5\x9C\xB0\xE5\x9B\xBE\xE5\xBB\xB6\xE9\x95\xBF", ADMFLAG_RCON)
 {
 	if (!g_bVoteManagerEnable)
 		return;
@@ -564,9 +564,9 @@ CON_COMMAND_CHAT_FLAGS(addextend, "- Add another extend to the current map for p
 	if (g_ExtendState == EExtendState::IN_PROGRESS)
 	{
 		if (player)
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Wait until the current vote has ended to add extends.");
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE7\xAD\x89\xE5\x88\xB0\xE5\xBD\x93\xE5\x89\x8D\xE6\x8A\x95\xE7\xA5\xA8\xE7\xBB\x93\xE6\x9D\x9F\xE5\x90\x8E\xE5\x86\x8D\xE6\xB7\xBB\xE5\x8A\xA0\xE5\xBB\xB6\xE9\x95\xBF.");
 		else
-			ConMsg("Wait until the current vote has ended to add extends.");
+			ConMsg("\xE7\xAD\x89\xE5\x88\xB0\xE5\xBD\x93\xE5\x89\x8D\xE6\x8A\x95\xE7\xA5\xA8\xE7\xBB\x93\xE6\x9D\x9F\xE5\x90\x8E\xE5\x86\x8D\xE6\xB7\xBB\xE5\x8A\xA0\xE5\xBB\xB6\xE9\x95\xBF.");
 		return;
 	}
 
@@ -580,7 +580,7 @@ CON_COMMAND_CHAT_FLAGS(addextend, "- Add another extend to the current map for p
 	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX ADMIN_PREFIX "allowed for an additional extend.", pszCommandPlayerName);
 }
 
-CON_COMMAND_CHAT(extendsleft, "- Display amount of extends left for the current map")
+CON_COMMAND_CHAT(extendsleft, "- \xE6\x98\xBE\xE7\xA4\xBA\xE5\xBD\x93\xE5\x89\x8D\xE5\x9C\xB0\xE5\x9B\xBE\xE7\x9A\x84\xE5\x89\xA9\xE4\xBD\x99\xE5\xBB\xB6\xE9\x95\xBF\xE6\xAC\xA1\xE6\x95\xB0")
 {
 	if (!g_bVoteManagerEnable)
 		return;
@@ -590,13 +590,13 @@ CON_COMMAND_CHAT(extendsleft, "- Display amount of extends left for the current 
 	switch (g_iExtendsLeft)
 	{
 	case 0:
-		strcpy(message, "There are no extends left.");
+		strcpy(message, "\xE6\xB2\xA1\xE6\x9C\x89\xE5\x89\xA9\xE4\xBD\x99\xE7\x9A\x84\xE5\xBB\xB6\xE9\x95\xBF.");
 		break;
 	case 1:
-		strcpy(message, "There's 1 extend left");
+		strcpy(message, "\xE8\xBF\x98\xE5\x89\xA9\xE4\xB8\x8B\x31\xE4\xB8\xAA\xE5\xBB\xB6\xE9\x95\xBF\xE6\xAC\xA1\xE6\x95\xB0");
 		break;
 	default:
-		V_snprintf(message, sizeof(message), "There are %i extends left.", g_iExtendsLeft);
+		V_snprintf(message, sizeof(message), "\xE8\xBF\x98\xE5\x89\xA9 %i \xE4\xB8\xAA\xE5\xBB\xB6\xE9\x95\xBF.", g_iExtendsLeft);
 		break;
 	}
 
@@ -606,11 +606,11 @@ CON_COMMAND_CHAT(extendsleft, "- Display amount of extends left for the current 
 		ConMsg("%s", message);
 }
 
-CON_COMMAND_CHAT(timeleft, "- Display time left to end of current map.")
+CON_COMMAND_CHAT(timeleft, "- \xE6\x98\xBE\xE7\xA4\xBA\xE5\xBD\x93\xE5\x89\x8D\xE5\x9C\xB0\xE5\x9B\xBE\xE5\x89\xA9\xE4\xBD\x99\xE6\x97\xB6\xE9\x97\xB4.")
 {
 	if (!player)
 	{
-		ClientPrint(player, HUD_PRINTCONSOLE, CHAT_PREFIX "You cannot use this command from the server console.");
+		ClientPrint(player, HUD_PRINTCONSOLE, CHAT_PREFIX "\xE6\x82\xA8\xE6\x97\xA0\xE6\xB3\x95\xE4\xBB\x8E\xE6\x9C\x8D\xE5\x8A\xA1\xE5\x99\xA8\xE6\x8E\xA7\xE5\x88\xB6\xE5\x8F\xB0\xE4\xBD\xBF\xE7\x94\xA8\xE6\xAD\xA4\xE5\x91\xBD\xE4\xBB\xA4.");
 		return;
 	}
 
@@ -622,7 +622,7 @@ CON_COMMAND_CHAT(timeleft, "- Display time left to end of current map.")
 
 	if (flTimelimit == 0.0f)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "No time limit");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\xB2\xA1\xE6\x9C\x89\xE6\x97\xB6\xE9\x97\xB4\xE9\x99\x90\xE5\x88\xB6");
 		return;
 	}
 
@@ -630,7 +630,7 @@ CON_COMMAND_CHAT(timeleft, "- Display time left to end of current map.")
 
 	if (iTimeleft < 0)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Last round!");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x9C\x80\xE5\x90\x8E\xE4\xB8\x80\xE5\xB1\x80!");
 		return;
 	}
 
@@ -639,9 +639,9 @@ CON_COMMAND_CHAT(timeleft, "- Display time left to end of current map.")
 	int iSecondsLeft = div.rem;
 
 	if (iMinutesLeft > 0)
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Timeleft: %i minutes %i seconds", iMinutesLeft, iSecondsLeft);
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\x89\xA9\xE4\xBD\x99\xE6\x97\xB6\xE9\x97\xB4: %i \xE5\x88\x86\xE9\x92\x9F %i \xE7\xA7\x92", iMinutesLeft, iSecondsLeft);
 	else
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Timeleft: %i seconds", iSecondsLeft);
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\x89\xA9\xE4\xBD\x99\xE6\x97\xB6\xE9\x97\xB4: %i \xE7\xA7\x92", iSecondsLeft);
 }
 
 void ExtendMap(int iMinutes)
@@ -679,7 +679,7 @@ void VoteExtendHandler(YesNoVoteAction action, int param1, int param2)
 	{
 	case YesNoVoteAction::VoteAction_Start:
 	{
-		ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "Extend vote started!");
+		ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE5\xBC\x80\xE5\xA7\x8B!");
 		break;
 	}
 	case YesNoVoteAction::VoteAction_Vote: // param1 = client slot, param2 = choice (VOTE_OPTION1=yes, VOTE_OPTION2=no)
@@ -687,7 +687,7 @@ void VoteExtendHandler(YesNoVoteAction action, int param1, int param2)
 		CCSPlayerController* pController = CCSPlayerController::FromSlot(param1);
 		if (!pController || !pController->IsController() || !pController->IsConnected())
 			break;
-		ClientPrint(pController, HUD_PRINTTALK, CHAT_PREFIX "Thanks for voting! Type !revote to change your vote!");
+		ClientPrint(pController, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x84\x9F\xE8\xB0\xA2\xE6\x82\xA8\xE7\x9A\x84\xE6\x8A\x95\xE7\xA5\xA8\xEF\xBC\x81\xE8\xBE\x93\xE5\x85\xA5\x21\x72\x65\x76\x6F\x74\x65\xE5\x8F\xAF\xE4\xBB\xA5\xE5\x8F\x96\xE6\xB6\x88\xE6\x82\xA8\xE7\x9A\x84\xE6\x8A\x95\xE7\xA5\xA8!");
 		break;
 	}
 	case YesNoVoteAction::VoteAction_End:

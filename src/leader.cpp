@@ -134,7 +134,7 @@ bool Leader_CreateDefendMarker(ZEPlayer *pPlayer, Color clrTint, int iDuration)
 
 	if (g_iMarkerCount >= 5)
 	{
-		ClientPrint(pController, HUD_PRINTTALK, CHAT_PREFIX "Too many defend markers already active!");
+		ClientPrint(pController, HUD_PRINTTALK, CHAT_PREFIX "\xE5\xB7\xB2\xE6\xBF\x80\xE6\xB4\xBB\xE7\x9A\x84\xE6\xA0\x87\xE7\x82\xB9\xE5\xA4\xAA\xE5\xA4\x9A!");
 		return false;
 	}
 
@@ -304,13 +304,13 @@ CON_COMMAND_CHAT(glow, "<name> [duration] - toggle glow highlight on a player")
 	{
 		if (args.ArgC() < 2)
 		{
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Usage: !glow <name> [duration]");
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE7\x94\xA8\xE6\xB3\x95: !glow <\xE5\x90\x8D\xE5\xAD\x97> [\xE6\x8C\x81\xE7\xBB\xAD\xE6\x97\xB6\xE9\x97\xB4]");
 			return;
 		}
 
 		if (!iNumClients)
 		{
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Target not found.");
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x9C\xAA\xE6\x89\xBE\xE5\x88\xB0\xE7\x9B\xAE\xE6\xA0\x87.");
 			return;
 		}
 
@@ -355,25 +355,25 @@ CON_COMMAND_CHAT(glow, "<name> [duration] - toggle glow highlight on a player")
 
 	if (!pPlayer->IsLeader())
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You must be a Leader or an Admin to use this command.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x82\xA8\xE5\xBF\x85\xE9\xA1\xBB\xE6\x98\xAF\xE6\x8C\x87\xE6\x8C\xA5\xE6\x88\x96\xE7\xAE\xA1\xE7\x90\x86\xE5\x91\x98\xE6\x89\x8D\xE8\x83\xBD\xE4\xBD\xBF\xE7\x94\xA8\xE6\xAD\xA4\xE5\x91\xBD\xE4\xBB\xA4.");
 		return;
 	}
 
 	if (args.ArgC() < 2)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Usage: !glow <name> [duration]");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE7\x94\xA8\xE6\xB3\x95: !glow <name> [duration]");
 		return;
 	}
 
 	if (player->m_iTeamNum != CS_TEAM_CT && g_bLeaderActionsHumanOnly)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You must be a human to use this command.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x82\xA8\xE5\xBF\x85\xE9\xA1\xBB\xE6\x98\xAF\xE4\xBA\xBA\xE7\xB1\xBB\xE6\x89\x8D\xE8\x83\xBD\xE4\xBD\xBF\xE7\x94\xA8\xE6\xAD\xA4\xE5\x91\xBD\xE4\xBB\xA4.");
 		return;
 	}
 
 	if (nTargetType > ETargetType::SELF)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You must target a specific player.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE4\xBD\xA0\xE5\xBF\x85\xE9\xA1\xBB\xE7\x9E\x84\xE5\x87\x86\xE4\xB8\x80\xE4\xB8\xAA\xE6\x8C\x87\xE5\xAE\x9A\xE7\x9A\x84\xE7\x8E\xA9\xE5\xAE\xB6.");
 		return;
 	}
 

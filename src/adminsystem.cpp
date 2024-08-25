@@ -67,7 +67,7 @@ void PrintMultiAdminAction(ETargetType nType, const char* pszAdminName, const ch
 	}
 }
 
-CON_COMMAND_F(c_reload_admins, "Reload admin config", FCVAR_SPONLY | FCVAR_LINKED_CONCOMMAND)
+CON_COMMAND_F(c_reload_admins, "\xE9\x87\x8D\xE6\x96\xB0\xE5\x8A\xA0\xE8\xBD\xBD\xE7\xAE\xA1\xE7\x90\x86\xE5\x91\x98\xE9\x85\x8D\xE7\xBD\xAE", FCVAR_SPONLY | FCVAR_LINKED_CONCOMMAND)
 {
 	if (!g_pAdminSystem->LoadAdmins())
 		return;
@@ -82,7 +82,7 @@ CON_COMMAND_F(c_reload_admins, "Reload admin config", FCVAR_SPONLY | FCVAR_LINKE
 		pPlayer->CheckAdmin();
 	}
 
-	Message("Admins reloaded\n");
+	Message("\xE7\xAE\xA1\xE7\x90\x86\xE5\x91\x98\xE5\xB7\xB2\xE9\x87\x8D\xE6\x96\xB0\xE5\x8A\xA0\xE8\xBD\xBD\n");
 }
 
 CON_COMMAND_F(c_reload_infractions, "Reload infractions file", FCVAR_SPONLY | FCVAR_LINKED_CONCOMMAND)
@@ -117,19 +117,19 @@ CON_COMMAND_CHAT_FLAGS(ban, "<name> <minutes|0 (permament)> - ban a player", ADM
 
 	if (g_playerManager->TargetPlayerString(iCommandPlayer, args[1], iNumClients, pSlot) > ETargetType::PLAYER)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You can only target individual players for banning.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x82\xA8\xE5\x8F\xAA\xE8\x83\xBD\xE9\x92\x88\xE5\xAF\xB9\xE5\x8D\x95\xE4\xB8\xAA\xE7\x8E\xA9\xE5\xAE\xB6\xE8\xBF\x9B\xE8\xA1\x8C\xE5\xB0\x81\xE7\xA6\x81.");
 		return;
 	}
 
 	if (!iNumClients)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Target not found.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x9C\xAA\xE6\x89\xBE\xE5\x88\xB0\xE7\x9B\xAE\xE6\xA0\x87.");
 		return;
 	}
 
 	if (iNumClients > 1)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "More than one client matched.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\x8C\xB9\xE9\x85\x8D\xE5\xA4\x9A\xE4\xB8\xAA\xE5\xAE\xA2\xE6\x88\xB7\xE7\xAB\xAF.");
 		return;
 	}
 
@@ -137,7 +137,7 @@ CON_COMMAND_CHAT_FLAGS(ban, "<name> <minutes|0 (permament)> - ban a player", ADM
 
 	if (iDuration < 0)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Invalid duration.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x8C\x81\xE7\xBB\xAD\xE6\x97\xB6\xE9\x97\xB4\xE6\x97\xA0\xE6\x95\x88.");
 		return;
 	}
 	CCSPlayerController* pTarget = CCSPlayerController::FromSlot(pSlot[0]);
@@ -170,7 +170,7 @@ CON_COMMAND_CHAT_FLAGS(ban, "<name> <minutes|0 (permament)> - ban a player", ADM
 		PrintSingleAdminAction(pszCommandPlayerName, pTarget->GetPlayerName(), "permanently banned");
 }
 
-CON_COMMAND_CHAT_FLAGS(unban, "<steamid64> - unbans a player. Takes decimal STEAMID64", ADMFLAG_BAN)
+CON_COMMAND_CHAT_FLAGS(unban, "<steamid64> - \xE8\xA7\xA3\xE9\x99\xA4\xE7\x8E\xA9\xE5\xAE\xB6\xE7\x9A\x84\xE7\xA6\x81\xE4\xBB\xA4\xE3\x80\x82\xE9\x87\x87\xE7\x94\xA8\xE5\x8D\x81\xE8\xBF\x9B\xE5\x88\xB6\x53\x54\x45\x41\x4D\x49\x44\x36\x34", ADMFLAG_BAN)
 {
 	if (args.ArgC() < 2)
 	{
@@ -273,7 +273,7 @@ CON_COMMAND_CHAT_FLAGS(mute, "<name> <duration|0 (permament)> - mutes a player",
 	PrintMultiAdminAction(nType, pszCommandPlayerName, "muted", (" for " + FormatTime(iDuration, false)).c_str());
 }
 
-CON_COMMAND_CHAT_FLAGS(unmute, "<name> - unmutes a player", ADMFLAG_CHAT)
+CON_COMMAND_CHAT_FLAGS(unmute, "<name> - \xE5\x8F\x96\xE6\xB6\x88\xE7\x8E\xA9\xE5\xAE\xB6\xE9\x9D\x99\xE9\x9F\xB3", ADMFLAG_CHAT)
 {
 	if (args.ArgC() < 2)
 	{
@@ -328,7 +328,7 @@ CON_COMMAND_CHAT_FLAGS(unmute, "<name> - unmutes a player", ADMFLAG_CHAT)
 	PrintMultiAdminAction(nType, pszCommandPlayerName, "unmuted");
 }
 
-CON_COMMAND_CHAT_FLAGS(gag, "<name> <duration|0 (permanent)> - gag a player", ADMFLAG_CHAT)
+CON_COMMAND_CHAT_FLAGS(gag, "<name> <duration|0 (permanent)> - \xE7\xA6\x81\xE8\xA8\x80", ADMFLAG_CHAT)
 {
 	if (args.ArgC() < 3)
 	{
@@ -409,7 +409,7 @@ CON_COMMAND_CHAT_FLAGS(gag, "<name> <duration|0 (permanent)> - gag a player", AD
 	PrintMultiAdminAction(nType, pszCommandPlayerName, "gagged", (" for " + FormatTime(iDuration, false)).c_str());
 }
 
-CON_COMMAND_CHAT_FLAGS(ungag, "<name> - ungags a player", ADMFLAG_CHAT)
+CON_COMMAND_CHAT_FLAGS(ungag, "<name> - \xE8\xA7\xA3\xE9\x99\xA4\x6A\x27\x79", ADMFLAG_CHAT)
 {
 	if (args.ArgC() < 2)
 	{
@@ -505,7 +505,7 @@ CON_COMMAND_CHAT_FLAGS(kick, "<name> - kick a player", ADMFLAG_KICK)
 	}
 }
 
-CON_COMMAND_CHAT_FLAGS(slay, "<name> - slay a player", ADMFLAG_SLAY)
+CON_COMMAND_CHAT_FLAGS(slay, "<name> - \xE6\x9D\x80\xE6\xAD\xBB\xE7\x8E\xA9\xE5\xAE\xB6", ADMFLAG_SLAY)
 {
 	if (args.ArgC() < 2)
 	{
@@ -617,7 +617,7 @@ CON_COMMAND_CHAT_FLAGS(slap, "<name> [damage] - slap a player", ADMFLAG_SLAY)
 	PrintMultiAdminAction(nType, pszCommandPlayerName, "slapped");
 }
 
-CON_COMMAND_CHAT_FLAGS(goto, "<name> - teleport to a player", ADMFLAG_SLAY)
+CON_COMMAND_CHAT_FLAGS(goto, "<name> - \xE4\xBC\xA0\xE9\x80\x81\xE5\x88\xB0\xE7\x8E\xA9\xE5\xAE\xB6\xE4\xBD\x8D\xE7\xBD\xAE", ADMFLAG_SLAY)
 {
 	// Only players can use this command at all
 	if (!player)
@@ -662,7 +662,7 @@ CON_COMMAND_CHAT_FLAGS(goto, "<name> - teleport to a player", ADMFLAG_SLAY)
 	}
 }
 
-CON_COMMAND_CHAT_FLAGS(bring, "<name> - bring a player", ADMFLAG_SLAY)
+CON_COMMAND_CHAT_FLAGS(bring, "<name> - \xE4\xBC\xA0\xE9\x80\x81\xE7\x8E\xA9\xE5\xAE\xB6\xE8\xBF\x87\xE6\x9D\xA5", ADMFLAG_SLAY)
 {
 	if (!player)
 	{
@@ -768,7 +768,7 @@ CON_COMMAND_CHAT_FLAGS(setteam, "<name> <team (0-3)> - set a player's team", ADM
 	PrintMultiAdminAction(nType, pszCommandPlayerName, "moved", szAction);
 }
 
-CON_COMMAND_CHAT_FLAGS(noclip, "- toggle noclip on yourself", ADMFLAG_SLAY | ADMFLAG_CHEATS)
+CON_COMMAND_CHAT_FLAGS(noclip, "- \xE7\xA9\xBF\xE5\xA2\x99", ADMFLAG_SLAY | ADMFLAG_CHEATS)
 {
 	if (!player)
 	{
@@ -950,7 +950,7 @@ CON_COMMAND_CHAT_FLAGS(entfirecontroller, "<name> <input> [parameter] - fire out
 	ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Input successful on %i player controllers.", iFoundEnts);
 }
 
-CON_COMMAND_CHAT_FLAGS(map, "<mapname> - change map", ADMFLAG_CHANGEMAP)
+CON_COMMAND_CHAT_FLAGS(map, "<mapname> - \xE5\x8F\x98\xE6\x9B\xB4\xE5\x9C\xB0\xE5\x9B\xBE", ADMFLAG_CHANGEMAP)
 {
 	if (args.ArgC() < 2)
 	{
@@ -1080,7 +1080,7 @@ CON_COMMAND_CHAT_FLAGS(extend, "<minutes> - extend current map (negative value r
 		ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX ADMIN_PREFIX "extended map time %i minutes.", pszCommandPlayerName, iExtendTime);
 }
 
-CON_COMMAND_CHAT_FLAGS(pm, "<name> <message> - Private message a player. This will also show to all online admins", ADMFLAG_GENERIC)
+CON_COMMAND_CHAT_FLAGS(pm, "<name> <message> - \xE7\xBB\x99\xE7\x8E\xA9\xE5\xAE\xB6\xE5\x8F\x91\xE7\xA7\x81\xE4\xBF\xA1\xE3\x80\x82\xE8\xBF\x99\xE4\xB9\x9F\xE5\xB0\x86\xE6\x98\xBE\xE7\xA4\xBA\xE7\xBB\x99\xE6\x89\x80\xE6\x9C\x89\xE5\x9C\xA8\xE7\xBA\xBF\xE7\xAE\xA1\xE7\x90\x86\xE5\x91\x98", ADMFLAG_GENERIC)
 {
 	if (args.ArgC() < 3)
 	{
@@ -1155,7 +1155,7 @@ CON_COMMAND_CHAT_FLAGS(pm, "<name> <message> - Private message a player. This wi
 	Message("[PM to %s] %s: %s\n", pTarget->GetPlayerName(), pszName, strMessage.c_str());
 }
 
-CON_COMMAND_CHAT_FLAGS(who, "- List the flags of all online players", ADMFLAG_GENERIC)
+CON_COMMAND_CHAT_FLAGS(who, "- \xE5\x88\x97\xE5\x87\xBA\xE6\x89\x80\xE6\x9C\x89\xE5\x9C\xA8\xE7\xBA\xBF\xE7\x8E\xA9\xE5\xAE\xB6\xE7\x9A\x84\xE6\xA0\x87\xE5\xBF\x97", ADMFLAG_GENERIC)
 {
 	std::vector<std::tuple<std::string, std::string, uint64>> rgNameSlotID;
 
@@ -1321,7 +1321,7 @@ CON_COMMAND_CHAT_FLAGS(who, "- List the flags of all online players", ADMFLAG_GE
 	ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Check console for output.");
 }
 
-CON_COMMAND_CHAT(status, "<name> - Checks a player's active punishments. Non-admins may only check their own punishments")
+CON_COMMAND_CHAT(status, "<name> - \xE6\xA3\x80\xE6\x9F\xA5\xE7\x8E\xA9\xE5\xAE\xB6\xE7\x9A\x84\xE4\xB8\xBB\xE5\x8A\xA8\xE6\x83\xA9\xE7\xBD\x9A\xE3\x80\x82\xE9\x9D\x9E\xE7\xAE\xA1\xE7\x90\x86\xE5\x91\x98\xE5\x8F\xAA\xE8\x83\xBD\xE6\xA3\x80\xE6\x9F\xA5\xE8\x87\xAA\xE5\xB7\xB1\xE7\x9A\x84\xE6\x83\xA9\xE7\xBD\x9A")
 {
 	int iCommandPlayer = player ? player->GetPlayerSlot() : -1;
 	int iNumClients;
@@ -1387,13 +1387,13 @@ CON_COMMAND_CHAT(status, "<name> - Checks a player's active punishments. Non-adm
 				target.length() == 0 ? "You are" : (target + " is").c_str(), punishment.c_str());
 }
 
-CON_COMMAND_CHAT_FLAGS(listdc, "- List recently disconnected players and their Steam64 IDs", ADMFLAG_GENERIC)
+CON_COMMAND_CHAT_FLAGS(listdc, "- \xE5\x88\x97\xE5\x87\xBA\xE6\x9C\x80\xE8\xBF\x91\xE6\x96\xAD\xE5\xBC\x80\xE8\xBF\x9E\xE6\x8E\xA5\xE7\x9A\x84\xE7\x8E\xA9\xE5\xAE\xB6\xE5\x8F\x8A\xE5\x85\xB6\x53\x74\x65\x61\x6D\x36\x34\x20\x49\x44", ADMFLAG_GENERIC)
 {
 	g_pAdminSystem->ShowDisconnectedPlayers(player);
 }
 
 #ifdef _DEBUG
-CON_COMMAND_CHAT_FLAGS(add_dc, "<name> <SteamID 64> <IP Address> - Adds a fake player to disconnected player list for testing", ADMFLAG_GENERIC)
+CON_COMMAND_CHAT_FLAGS(add_dc, "<name> <SteamID 64> <IP Address> - \xE5\xB0\x86\xE5\x81\x87\xE7\x8E\xA9\xE5\xAE\xB6\xE6\xB7\xBB\xE5\x8A\xA0\xE5\x88\xB0\xE6\x96\xAD\xE5\xBC\x80\xE8\xBF\x9E\xE6\x8E\xA5\xE7\x9A\x84\xE7\x8E\xA9\xE5\xAE\xB6\xE5\x88\x97\xE8\xA1\xA8\xE4\xB8\xAD\xE8\xBF\x9B\xE8\xA1\x8C\xE6\xB5\x8B\xE8\xAF\x95", ADMFLAG_GENERIC)
 {
 	if (args.ArgC() < 3)
 	{

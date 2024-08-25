@@ -42,14 +42,14 @@ extern CIdleSystem* g_pIdleSystem;
 
 CMapVoteSystem* g_pMapVoteSystem = nullptr;
 
-CON_COMMAND_CHAT_FLAGS(reload_map_list, "- Reload map list, also reloads current map on completion", ADMFLAG_ROOT)
+CON_COMMAND_CHAT_FLAGS(reload_map_list, "- \xE9\x87\x8D\xE6\x96\xB0\xE5\x8A\xA0\xE8\xBD\xBD\xE5\x9C\xB0\xE5\x9B\xBE\xE5\x88\x97\xE8\xA1\xA8\x2C\xE5\xAE\x8C\xE6\x88\x90\xE5\x90\x8E\xE4\xB9\x9F\xE9\x87\x8D\xE6\x96\xB0\xE5\x8A\xA0\xE8\xBD\xBD\xE5\xBD\x93\xE5\x89\x8D\xE5\x9C\xB0\xE5\x9B\xBE", ADMFLAG_ROOT)
 {
 	if (!g_bVoteManagerEnable)
 		return;
 
 	if (g_pMapVoteSystem->GetDownloadQueueSize() != 0)
 	{
-		Message("Please wait for current map downloads to finish before loading map list again\n");
+		Message("\xE8\xAF\xB7\xE7\xAD\x89\xE5\xBE\x85\xE5\xBD\x93\xE5\x89\x8D\xE5\x9C\xB0\xE5\x9B\xBE\xE4\xB8\x8B\xE8\xBD\xBD\xE5\xAE\x8C\xE6\x88\x90\x2C\xE7\x84\xB6\xE5\x90\x8E\xE5\x86\x8D\xE9\x87\x8D\xE6\x96\xB0\xE5\x8A\xA0\xE8\xBD\xBD\xE5\x9C\xB0\xE5\x9B\xBE\xE5\x88\x97\xE8\xA1\xA8\n");
 		return;
 	}
 
@@ -100,7 +100,7 @@ CON_COMMAND_F(cs2f_vote_max_nominations, "Number of nominations to include per v
 	}
 }
 
-CON_COMMAND_CHAT_FLAGS(setnextmap, "[mapname] - Force next map (empty to clear forced next map)", ADMFLAG_CHANGEMAP)
+CON_COMMAND_CHAT_FLAGS(setnextmap, "[\xE5\x9C\xB0\xE5\x9B\xBE\xE5\x90\x8D\xE5\xAD\x97] - \xE5\xBC\xBA\xE5\x88\xB6\xE4\xB8\x8B\xE4\xB8\x80\xE5\xBC\xA0\xE5\x9C\xB0\xE5\x9B\xBE\xEF\xBC\x88\xE5\xBC\xBA\xE5\x88\xB6\xE6\xB8\x85\xE7\xA9\xBA\xE4\xB8\x8B\xE4\xB8\x80\xE4\xB8\xAA\xE5\x9C\xB0\xE5\x9B\xBE\xEF\xBC\x89", ADMFLAG_CHANGEMAP)
 {
 	if (!g_bVoteManagerEnable)
 		return;
@@ -108,10 +108,10 @@ CON_COMMAND_CHAT_FLAGS(setnextmap, "[mapname] - Force next map (empty to clear f
 	bool bIsClearingForceNextMap = args.ArgC() < 2;
 	int iResponse = g_pMapVoteSystem->ForceNextMap(bIsClearingForceNextMap ? "" : args[1]);
 	if (bIsClearingForceNextMap) {
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You reset the forced next map.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x82\xA8\xE9\x87\x8D\xE7\xBD\xAE\xE4\xBA\x86\xE5\xBC\xBA\xE5\x88\xB6\xE7\x9A\x84\xE4\xB8\x8B\xE4\xB8\x80\xE5\xBC\xA0\xE5\x9C\xB0\xE5\x9B\xBE.");
 	}
 	else {
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You have forced the next map to %s.", g_pMapVoteSystem->GetMapName(iResponse));
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x82\xA8\xE9\x87\x8D\xE7\xBD\xAE\xE4\xBA\x86\xE5\xBC\xBA\xE5\x88\xB6\xE7\x9A\x84\xE4\xB8\x8B\xE4\xB8\x80\xE5\xBC\xA0\xE5\x9C\xB0\xE5\x9B\xBE %s.", g_pMapVoteSystem->GetMapName(iResponse));
 	}
 }
 
@@ -120,7 +120,7 @@ static int __cdecl OrderStringsLexicographically(const char* const* a, const cha
 	return V_strcasecmp(*a, *b);
 }
 
-CON_COMMAND_CHAT_FLAGS(nominate, "[mapname] - Nominate a map (empty to clear nomination)", ADMFLAG_NONE)
+CON_COMMAND_CHAT_FLAGS(nominate, "[\xE5\x9C\xB0\xE5\x9B\xBE\xE5\x90\x8D\xE5\xAD\x97] - \xE9\xA2\x84\xE5\xAE\x9A\xE5\x9C\xB0\xE5\x9B\xBE\xEF\xBC\x88\xE7\xA9\xBA\xE7\x99\xBD\xE4\xBB\xA5\xE6\xB8\x85\xE9\x99\xA4\xE9\xA2\x84\xE5\xAE\x9A\xEF\xBC\x89", ADMFLAG_NONE)
 {
 	if (!g_bVoteManagerEnable || !player)
 		return;
@@ -133,27 +133,27 @@ CON_COMMAND_CHAT_FLAGS(nominate, "[mapname] - Nominate a map (empty to clear nom
 
 	switch (iResponse) {
 		case NominationReturnCodes::VOTE_STARTED:
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Could not nominate as the vote has already started.");
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x97\xA0\xE6\xB3\x95\xE9\xA2\x84\xE5\xAE\x9A\xEF\xBC\x8C\xE5\x9B\xA0\xE4\xB8\xBA\xE6\x8A\x95\xE7\xA5\xA8\xE5\xB7\xB2\xE7\xBB\x8F\xE5\xBC\x80\xE5\xA7\x8B.");
 			break;
 		case NominationReturnCodes::INVALID_INPUT:
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Could not nominate as the input is invalid. Usage: !nominate <map substring>");
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x97\xA0\xE6\xB3\x95\xE9\xA2\x84\xE5\xAE\x9A\xEF\xBC\x8C\xE5\x9B\xA0\xE4\xB8\xBA\xE8\xBE\x93\xE5\x85\xA5\xE6\x97\xA0\xE6\x95\x88. \xE7\x94\xA8\xE6\xB3\x95: !nominate <\xE5\x9C\xB0\xE5\x9B\xBE\xE5\x90\x8D\xE5\xAD\x97>");
 			break;
 		case NominationReturnCodes::MAP_NOT_FOUND:
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Could not nominate as no map matched '%s'.", args[1]);
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x97\xA0\xE6\xB3\x95\xE9\xA2\x84\xE5\xAE\x9A\xEF\xBC\x8C\xE5\x9B\xA0\xE4\xB8\xBA\xE6\xB2\xA1\xE6\x9C\x89\xE5\x8C\xB9\xE9\x85\x8D\xE7\x9A\x84\xE5\x9C\xB0\xE5\x9B\xBE '%s'.", args[1]);
 			break;
 		case NominationReturnCodes::INVALID_MAP:
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "The map matching '%s' is not available for nomination.", args[1]);
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\xAD\xA4\xE5\x9C\xB0\xE5\x9B\xBE '%s' \xE4\xB8\x8D\xE5\x8F\xAF\xE9\xA2\x84\xE5\xAE\x9A.", args[1]);
 			break;
 		case NominationReturnCodes::NOMINATION_DISABLED:
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Nomination is currently disabled.");
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE9\xA2\x84\xE5\xAE\x9A\xE5\xBD\x93\xE5\x89\x8D\xE5\xB7\xB2\xE7\xA6\x81\xE7\x94\xA8.");
 			break;
 		case NominationReturnCodes::NOMINATION_RESET:
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Your nomination was reset.");
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x82\xA8\xE7\x9A\x84\xE9\xA2\x84\xE5\xAE\x9A\xE5\xB7\xB2\xE9\x87\x8D\xE7\xBD\xAE.");
 			break;
 		case NominationReturnCodes::NOMINATION_RESET_FAILED:
 		{
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "The list of all maps will be shown in console.");
-			ClientPrint(player, HUD_PRINTCONSOLE, "The list of all maps is:");
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x89\x80\xE6\x9C\x89\xE5\x9C\xB0\xE5\x9B\xBE\xE7\x9A\x84\xE5\x88\x97\xE8\xA1\xA8\xE5\xB0\x86\xE6\x98\xBE\xE7\xA4\xBA\xE5\x9C\xA8\xE6\x8E\xA7\xE5\x88\xB6\xE5\x8F\xB0\xE4\xB8\xAD.");
+			ClientPrint(player, HUD_PRINTCONSOLE, "\xE6\x89\x80\xE6\x9C\x89\xE5\x9C\xB0\xE5\x9B\xBE\xE7\x9A\x84\xE5\x88\x97\xE8\xA1\xA8\xE6\x98\xAF:");
 			CUtlVector<const char*> vecMapNames;
 
 			for (int i = 0; i < g_pMapVoteSystem->GetMapListSize(); i++)
@@ -171,7 +171,7 @@ CON_COMMAND_CHAT_FLAGS(nominate, "[mapname] - Nominate a map (empty to clear nom
 			if (pPlayer->GetNominateTime() + 60.0f > gpGlobals->curtime)
 			{
 				int iRemainingTime = (int)(pPlayer->GetNominateTime() + 60.0f - gpGlobals->curtime);
-				ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Wait %i seconds before you can nominate again.", iRemainingTime);
+				ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE7\xAD\x89\xE5\xBE\x85 %i \xE7\xA7\x92\xE5\x90\x8E\xE6\x89\x8D\xE8\x83\xBD\xE5\x86\x8D\xE6\xAC\xA1\xE5\x8F\x91\xE8\xB5\xB7\xE9\xA2\x84\xE5\xAE\x9A.", iRemainingTime);
 				return;
 			}
 			else
@@ -185,12 +185,12 @@ CON_COMMAND_CHAT_FLAGS(nominate, "[mapname] - Nominate a map (empty to clear nom
 	}
 }
 
-CON_COMMAND_CHAT(nomlist, "- List the list of nominations")
+CON_COMMAND_CHAT(nomlist, "- \xE5\x88\x97\xE5\x87\xBA\xE9\xA2\x84\xE5\xAE\x9A\xE5\x90\x8D\xE5\x8D\x95")
 {
 	if (!g_bVoteManagerEnable)
 		return;
 
-	ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Current nominations:");
+	ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\xBD\x93\xE5\x89\x8D\xE9\xA2\x84\xE5\xAE\x9A:");
 	for (int i = 0; i < g_pMapVoteSystem->GetMapListSize(); i++) {
 		if (!g_pMapVoteSystem->IsMapIndexEnabled(i)) continue;
 		int iNumNominations = g_pMapVoteSystem->GetTotalNominations(i);
@@ -201,13 +201,13 @@ CON_COMMAND_CHAT(nomlist, "- List the list of nominations")
 }
 
 // TODO: also merge this into nominate after cooldown system is rewritten
-CON_COMMAND_CHAT(mapcooldowns, "- List the maps currently in cooldown")
+CON_COMMAND_CHAT(mapcooldowns, "- \xE5\x88\x97\xE5\x87\xBA\xE5\xBD\x93\xE5\x89\x8D\xE5\xA4\x84\xE4\xBA\x8E\xE5\x86\xB7\xE5\x8D\xB4\xE7\x8A\xB6\xE6\x80\x81\xE7\x9A\x84\xE5\x9C\xB0\xE5\x9B\xBE")
 {
 	if (!g_bVoteManagerEnable)
 		return;
 
-	ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "The list of maps in cooldown will be shown in console.");
-	ClientPrint(player, HUD_PRINTCONSOLE, "The list of maps in cooldown is:");
+	ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\x86\xB7\xE5\x8D\xB4\xE4\xB8\xAD\xE5\x9C\xB0\xE5\x9B\xBE\xE5\xB0\x86\xE6\x98\xBE\xE7\xA4\xBA\xE5\x9C\xA8\xE6\x8E\xA7\xE5\x88\xB6\xE5\x8F\xB0\xE4\xB8\xAD.");
+	ClientPrint(player, HUD_PRINTCONSOLE, "\xE5\x86\xB7\xE5\x8D\xB4\xE4\xB8\xAD\xE7\x9A\x84\xE5\x9C\xB0\xE5\x9B\xBE\xE4\xB8\xBA:");
 	int iMapsInCooldown = g_pMapVoteSystem->GetMapsInCooldown();
 	for (int i = iMapsInCooldown - 1; i >= 0; i--) {
 		int iMapIndex = g_pMapVoteSystem->GetCooldownMap(i);
@@ -368,13 +368,13 @@ void CMapVoteSystem::FinishVote()
 	g_pGameRules->m_nEndMatchMapVoteWinner = iNextMapVoteIndex;
 	int iWinningMap = g_pGameRules->m_nEndMatchMapGroupVoteOptions[iNextMapVoteIndex];
 	if (bIsNextMapVoted) {
-		ClientPrintAll(HUD_PRINTTALK, "The vote has ended. \x06%s\x01 will be the next map!\n", GetMapName(iWinningMap));
+		ClientPrintAll(HUD_PRINTTALK, "\xE6\x8A\x95\xE7\xA5\xA8\xE7\xBB\x93\xE6\x9D\x9F. \xE4\xB8\x8B\xE4\xB8\x80\xE5\xBC\xA0\xE5\x9C\xB0\xE5\x9B\xBE\xE6\x98\xAF\x06%s\x01!\n", GetMapName(iWinningMap));
 	}
 	else if (bIsNextMapForced) {
-		ClientPrintAll(HUD_PRINTTALK, "The vote was overriden. \x06%s\x01 will be the next map!\n", GetMapName(iWinningMap));
+		ClientPrintAll(HUD_PRINTTALK, "\xE6\x8A\x95\xE7\xA5\xA8\xE4\xBB\xA5\xE5\x8F\x96\xE6\xB6\x88. \x06%s\x01 \xE5\xB0\x86\xE6\x98\xAF\xE4\xB8\x8B\xE4\xB8\x80\xE5\xBC\xA0\xE5\x9C\xB0\xE5\x9B\xBE!\n", GetMapName(iWinningMap));
 	}
 	else {
-		ClientPrintAll(HUD_PRINTTALK, "No map was chosen. \x06%s\x01 will be the next map!\n", GetMapName(iWinningMap));
+		ClientPrintAll(HUD_PRINTTALK, "\xE6\xB2\xA1\xE6\x9C\x89\xE5\x9C\xB0\xE5\x9B\xBE\xE8\xA2\xAB\xE9\x80\x89\xE5\x87\xBA. \x06%s\x01 \xE5\xB0\x86\xE6\x98\xAF\xE4\xB8\x8B\xE4\xB8\x80\xE5\xBC\xA0\xE5\x9C\xB0\xE5\x9B\xBE!\n", GetMapName(iWinningMap));
 	}
 
 	// Print vote result information: how many votes did each map get?

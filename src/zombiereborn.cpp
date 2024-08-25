@@ -1031,7 +1031,7 @@ void SetupCTeams()
 
 void ZR_OnRoundStart(IGameEvent* pEvent)
 {
-	ClientPrintAll(HUD_PRINTTALK, ZR_PREFIX "\xE6\xB8\xB8\xE6\x88\x8F\xE7\x8E\xA9\xE6\xB3\x95 \x05\u4eba\u7c7b\u0020\u0076\u0073\u0020\u50f5\u5c38\x01,\u50f5\u5c38\u7684\u76ee\u6807\u662f\u4f7f\u7528\u5200\u611f\u67d3\u6240\u6709\u4eba\u7c7b\u002e.");
+	ClientPrintAll(HUD_PRINTTALK, ZR_PREFIX "\xE6\xB8\xB8\xE6\x88\x8F\xE7\x8E\xA9\xE6\xB3\x95\x3A\x05\xE4\xBA\xBA\xE7\xB1\xBB\x20\x56\x53\x20\xE5\x83\xB5\xE5\xB0\xB8\x01,\xE5\x83\xB5\xE5\xB0\xB8\xE7\x9A\x84\xE7\x9B\xAE\xE6\xA0\x87\xE6\x98\xAF\xE9\x80\x9A\xE8\xBF\x87\xE5\x8C\x95\xE9\xA6\x96\xE6\x84\x9F\xE6\x9F\x93\xE6\x89\x80\xE6\x9C\x89\xE4\xBA\xBA\xE7\xB1\xBB.");
 	SetupRespawnToggler();
 	CZRRegenTimer::RemoveAllTimers();
 
@@ -1405,8 +1405,8 @@ void ZR_InitialInfection()
 	if (g_flRespawnDelay < 0.0f)
 		g_bRespawnEnabled = false;
 
-	ClientPrintAll(HUD_PRINTCENTER, "First infection has started!");
-	ClientPrintAll(HUD_PRINTTALK, ZR_PREFIX "First infection has started! Good luck, survivors!");
+	ClientPrintAll(HUD_PRINTCENTER, "\xE6\xAF\x8D\xE4\xBD\x93\xE5\xB7\xB2\xE7\xBB\x8F\xE5\x87\xBA\xE7\x8E\xB0");
+	ClientPrintAll(HUD_PRINTTALK, ZR_PREFIX "\xE6\xAF\x8D\xE4\xBD\x93\xE5\xB7\xB2\xE7\xBB\x8F\xE5\x87\xBA\xE7\x8E\xB0\x21\xE7\xA5\x9D\xE4\xBD\xA0\xE4\xBB\xAC\xE5\xA5\xBD\xE8\xBF\x90\x2C\xE5\xB9\xB8\xE5\xAD\x98\xE8\x80\x85\xEF\xBC\x81");
 	g_ZRRoundState = EZRRoundState::POST_INFECTION;
 }
 
@@ -1429,7 +1429,7 @@ void ZR_StartInitialCountdown()
 		if (g_iInfectionCountDown <= 60)
 		{
 			char message[256];
-			V_snprintf(message, sizeof(message), "First infection in \7%i %s\1!", g_iInfectionCountDown, g_iInfectionCountDown == 1 ? "second" : "seconds");
+			V_snprintf(message, sizeof(message), "\xE6\xAF\x8D\xE4\xBD\x93\xE5\xB0\x86\xE5\x9C\xA8\xE5\x80\x92\xE8\xAE\xA1\xE6\x97\xB6 \7%i %s\1!", g_iInfectionCountDown, g_iInfectionCountDown == 1 ? "second" : "\xE7\xA7\x92\xE5\x87\xBA\xE7\x8E\xB0");
 
 			ClientPrintAll(HUD_PRINTCENTER, message);
 			if (g_iInfectionCountDown % 5 == 0)
