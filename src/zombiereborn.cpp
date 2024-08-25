@@ -1031,7 +1031,7 @@ void SetupCTeams()
 
 void ZR_OnRoundStart(IGameEvent* pEvent)
 {
-	ClientPrintAll(HUD_PRINTTALK, ZR_PREFIX "ÓÎÏ·Íæ·¨ \x05\u4eba\u7c7b\u0020\u0076\u0073\u0020\u50f5\u5c38\x01,\u50f5\u5c38\u7684\u76ee\u6807\u662f\u4f7f\u7528\u5200\u611f\u67d3\u6240\u6709\u4eba\u7c7b\u002e.");
+	ClientPrintAll(HUD_PRINTTALK, ZR_PREFIX "\xE6\xB8\xB8\xE6\x88\x8F\xE7\x8E\xA9\xE6\xB3\x95 \x05\u4eba\u7c7b\u0020\u0076\u0073\u0020\u50f5\u5c38\x01,\u50f5\u5c38\u7684\u76ee\u6807\u662f\u4f7f\u7528\u5200\u611f\u67d3\u6240\u6709\u4eba\u7c7b\u002e.");
 	SetupRespawnToggler();
 	CZRRegenTimer::RemoveAllTimers();
 
