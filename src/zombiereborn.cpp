@@ -1736,7 +1736,7 @@ void ZR_EndRoundAndAddTeamScore(int iTeamNum)
 	}
 }
 
-CON_COMMAND_CHAT(ztele, "- teleport to spawn")
+CON_COMMAND_CHAT(ztele, "- \xE5\x83\xB5\xE5\xB0\xB8\xE8\xA2\xAB\xE5\x8D\xA1\xE4\xBD\x8F\xE5\x8F\xAF\xE4\xBB\xA5\xE8\xBE\x93\xE8\xBF\x99\xE4\xB8\xAA\xE4\xBC\xA0\xE9\x80\x81")
 {
 	// Silently return so the command is completely hidden
 	if (!g_bEnableZR)
@@ -1751,7 +1751,7 @@ CON_COMMAND_CHAT(ztele, "- teleport to spawn")
 	// Check if command is enabled for humans
 	if (!g_bZteleHuman && player->m_iTeamNum() == CS_TEAM_CT)
 	{
-		ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX "You cannot use this command as a human.");
+		ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX "\xE6\x82\xA8\xE4\xB8\x8D\xE8\x83\xBD\xE4\xBB\xA5\xE4\xBA\xBA\xE7\xB1\xBB\xE8\xBA\xAB\xE4\xBB\xBD\xE4\xBD\xBF\xE7\x94\xA8\xE6\xAD\xA4\xE5\x91\xBD\xE4\xBB\xA4.");
 		return;
 	}
 
@@ -1774,14 +1774,14 @@ CON_COMMAND_CHAT(ztele, "- teleport to spawn")
 
 	if (!pPawn->IsAlive())
 	{
-		ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX"You cannot teleport when dead!");
+		ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX"\xE4\xBD\xA0\xE5\xB7\xB2\xE6\xAD\xBB\xE4\xBA\xA1\x2C\xE6\x97\xA0\xE6\xB3\x95\xE4\xBC\xA0\xE9\x80\x81!");
 		return;
 	}
 
 	//Get initial player position so we can do distance check
 	Vector initialpos = pPawn->GetAbsOrigin();
 
-	ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX"Teleporting to spawn in 5 seconds.");
+	ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX"\xE5\x9C\xA8\x35\xE7\xA7\x92\xE5\x86\x85\xE8\xBF\x9B\xE8\xA1\x8C\xE4\xBC\xA0\xE9\x80\x81.");
 
 	CHandle<CCSPlayerPawn> pawnHandle = pPawn->GetHandle();
 
@@ -1801,11 +1801,11 @@ CON_COMMAND_CHAT(ztele, "- teleport to spawn")
 			QAngle rotation = pSpawn->GetAbsRotation();
 
 			pPawn->Teleport(&origin, &rotation, nullptr);
-			ClientPrint(pPawn->GetOriginalController(), HUD_PRINTTALK, ZR_PREFIX "You have been teleported to spawn.");
+			ClientPrint(pPawn->GetOriginalController(), HUD_PRINTTALK, ZR_PREFIX "\xE4\xBD\xA0\xE5\xB7\xB2\xE8\xA2\xAB\xE4\xBC\xA0\xE9\x80\x81.");
 		}
 		else
 		{
-			ClientPrint(pPawn->GetOriginalController(), HUD_PRINTTALK, ZR_PREFIX "Teleport failed! You moved too far.");
+			ClientPrint(pPawn->GetOriginalController(), HUD_PRINTTALK, ZR_PREFIX "\xE4\xBC\xA0\xE9\x80\x81\xE5\xA4\xB1\xE8\xB4\xA5\xEF\xBC\x81\xE4\xBD\xA0\xE8\xB5\xB0\xE5\xBE\x97\xE5\xA4\xAA\xE8\xBF\x9C\xE4\xBA\x86.");
 		}
 
 		return -1.0f;
