@@ -306,9 +306,9 @@ GAME_EVENT_F(round_end)
 		CCSPlayerController* pController = CCSPlayerController::FromSlot(pPlayer->GetPlayerSlot());
 
 		if (i < 5)
-			ClientPrintAll(HUD_PRINTTALK, " %c%i. %s \x01- \x07%i DMG \x05(%i HITS & %i KILLS)", colorMap[MIN(i, 3)], i + 1, pController->GetPlayerName(), pPlayer->GetTotalDamage(), pPlayer->GetTotalHits(), pPlayer->GetTotalKills());
+			ClientPrintAll(HUD_PRINTTALK, " %c%i. %s \x01- \x07%i \xE4\xBC\xA4\xE5\xAE\xB3 \x05(%i \xE5\x91\xBD\xE4\xB8\xAD & %i \xE5\x87\xBB\xE6\x9D\x80)", colorMap[MIN(i, 3)], i + 1, pController->GetPlayerName(), pPlayer->GetTotalDamage(), pPlayer->GetTotalHits(), pPlayer->GetTotalKills());
 		else
-			ClientPrint(pController, HUD_PRINTTALK, " \x0C%i. %s \x01- \x07%i DMG \x05(%i HITS & %i KILLS)", i + 1, pController->GetPlayerName(), pPlayer->GetTotalDamage(), pPlayer->GetTotalHits(), pPlayer->GetTotalKills());
+			ClientPrint(pController, HUD_PRINTTALK, " \x0C%i. %s \x01- \x07%i \xE4\xBC\xA4\xE5\xAE\xB3 \x05(%i \xE5\x91\xBD\xE4\xB8\xAD & %i \xE5\x87\xBB\xE6\x9D\x80)", i + 1, pController->GetPlayerName(), pPlayer->GetTotalDamage(), pPlayer->GetTotalHits(), pPlayer->GetTotalKills());
 		
 		pPlayer->SetTotalDamage(0);
 		pPlayer->SetTotalHits(0);

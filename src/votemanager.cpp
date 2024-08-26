@@ -380,9 +380,9 @@ CON_COMMAND_CHAT(ve, "- Vote to extend current map")
 			int iSecondsLeft = div.rem;
 
 			if (iMinutesLeft > 0)
-				ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "An extend vote will start in %im %is", iMinutesLeft, iSecondsLeft);
+				ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE5\xB0\x86\xE5\x9C\xA8 %im %is \xE5\x90\x8E\xE5\xBC\x80\xE6\x94\xBE", iMinutesLeft, iSecondsLeft);
 			else
-				ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "An extend vote will start in %i seconds", iSecondsLeft);
+				ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\xBB\xB6\xE9\x95\xBF\xE6\x8A\x95\xE7\xA5\xA8\xE5\xB0\x86\xE4\xBA\x8E %i \xE7\xA7\x92\xE5\x90\x8E\xE5\xBC\x80\xE6\x94\xBE", iSecondsLeft);
 			return;
 		}
 	}
