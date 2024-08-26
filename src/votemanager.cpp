@@ -796,7 +796,7 @@ void StartExtendVote(int iCaller)
 				return -1.0f;
 			}
 
-			ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "\xE6\x8A\x95\xE7\xA5\xA8\xE5\xBB\xB6\xE9\x95\xBF\xE5\x88\xB0 %d....", iVoteEndTicks);
+			ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "\xE6\x8A\x95\xE7\xA5\xA8\xE5\xBB\xB6\xE9\x95\xBF\xE5\x80\x92\xE8\xAE\xA1\xE6\x97\xB6 %d....", iVoteEndTicks);
 			iVoteEndTicks--;
 			return 1.0f;
 		}
