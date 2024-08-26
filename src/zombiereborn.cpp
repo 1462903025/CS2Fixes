@@ -1429,7 +1429,7 @@ void ZR_StartInitialCountdown()
 		if (g_iInfectionCountDown <= 60)
 		{
 			char message[256];
-			V_snprintf(message, sizeof(message), "\xE6\xAF\x8D\xE4\xBD\x93\xE5\xB0\x86\xE5\x9C\xA8\xE5\x80\x92\xE8\xAE\xA1\xE6\x97\xB6 \7%i %s\1!", g_iInfectionCountDown, g_iInfectionCountDown == 1 ? "second" : "\xE7\xA7\x92\xE5\x87\xBA\xE7\x8E\xB0");
+			V_snprintf(message, sizeof(message), "\xE6\xAF\x8D\xE4\xBD\x93\xE5\xB0\x86\xE5\x9C\xA8\xE5\x80\x92\xE8\xAE\xA1\xE6\x97\xB6 \7%i %s\1!", g_iInfectionCountDown, g_iInfectionCountDown == 1 ? "\xE7\xA7\x92\xE5\x90\x8E\xE5\x87\xBA\xE7\x8E\xB0" : "seconds");
 
 			ClientPrintAll(HUD_PRINTCENTER, message);
 			if (g_iInfectionCountDown % 5 == 0)
@@ -1522,7 +1522,7 @@ void ZR_Detour_CEntityIdentity_AcceptInput(CEntityIdentity* pThis, CUtlSymbolLar
 	else
 		return;
 
-	ClientPrintAll(HUD_PRINTTALK, ZR_PREFIX "Respawning is %s!", g_bRespawnEnabled ? "enabled" : "disabled");
+	ClientPrintAll(HUD_PRINTTALK, ZR_PREFIX "\xE9\x87\x8D\xE7\x94\x9F\xE5\xB7\xB2\xE5\x85\xB3\xE9\x97\xAD %s!", g_bRespawnEnabled ? "enabled" : "disabled");
 }
 
 void SpawnPlayer(CCSPlayerController* pController)

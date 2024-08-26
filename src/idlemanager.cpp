@@ -73,7 +73,7 @@ void CIdleSystem::CheckForIdleClients()
 			{
 				CCSPlayerController* pPlayer = CCSPlayerController::FromSlot(zPlayer->GetPlayerSlot());
 				if (pPlayer)
-					ClientPrint(pPlayer, HUD_PRINTTALK, CHAT_PREFIX "You will be flagged as idle if you do not move within\2 %i\1 seconds.", iIdleTimeLeft);
+					ClientPrint(pPlayer, HUD_PRINTTALK, CHAT_PREFIX "\xE4\xBD\xA0\xE6\x8C\x82\xE6\x9C\xBA\xE4\xBA\x86\x2C\xE5\xBF\xAB\xE5\x8A\xA8\xE4\xB8\x80\xE5\x8A\xA8,\xE5\xB0\x86\xE5\x9C\xA8\2 %i\1 \xE7\xA7\x92\xE5\x90\x8E\x74\x69\x27\x63\x68\x75.", iIdleTimeLeft);
 			}
 			continue;
 		}

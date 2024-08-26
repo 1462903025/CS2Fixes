@@ -179,7 +179,7 @@ CON_COMMAND_CHAT_FLAGS(nominate, "[\xE5\x9C\xB0\xE5\x9B\xBE\xE5\x90\x8D\xE5\xAD\
 				const char* sPlayerName = player->GetPlayerName();
 				const char* sMapName = g_pMapVoteSystem->GetMapName(iResponse);
 				int iNumNominations = g_pMapVoteSystem->GetTotalNominations(iResponse);
-				ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX " \x06%s \x01was nominated by %s. It now has %d nominations.", sMapName, sPlayerName, iNumNominations);
+				ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX " \x06%s \x01\xE5\x9C\xB0\xE5\x9B\xBE\xE5\xB7\xB2\xE8\xA2\xAB %s \xE9\xA2\x84\xE5\xAE\x9A. \xE5\xBD\x93\xE5\x89\x8D\xE5\xB7\xB2\xE6\x9C\x89 %d \xE7\xA5\xA8.", sMapName, sPlayerName, iNumNominations);
 				pPlayer->SetNominateTime(gpGlobals->curtime);
 			}
 	}
