@@ -124,3 +124,22 @@ void ParseChatCommand(const char *, CCSPlayerController *);
 	void name##_callback(const CCommand &args, CCSPlayerController *player)
 
 #define CON_COMMAND_CHAT(name, description) CON_COMMAND_CHAT_FLAGS(name, description, ADMFLAG_NONE)
+
+
+#define ALIAS_COMMANG_CHAT(name, alias_name, description, flags)                                                                                     \
+	static void alias_name##_callback(const CCommand &args, CCSPlayerController *player)														       \
+	{                                                                                                                                                  \
+		name##_callback(args, player);                                                                                                                  \
+	}                                                                                                                                                  \
+	static CChatCommand alias_name##_chat_command(#alias_name, alias_name##_callback, description, flags);                                            \
+	static void alias_name##_con_callback(const CCommandContext &context, const CCommand &args)                                                       \
+	{                                                                                                                                                  \
+		CCSPlayerController *pController = nullptr;                                                                                                     \
+		if (context.GetPlayerSlot().Get() != -1)                                                                                                       \
+			pController = (CCSPlayerController *)g_pEntitySystem->GetEntityInstance((CEntityIndex)(context.GetPlayerSlot().Get() + 1));                \
+                                                                                                                                                       \
+		alias_name##_chat_command(args, pController);                                                                                                   \
+	}                                                                                                                                                  \
+	static ConCommandRefAbstract alias_name##_ref;                                                                                                     \
+	static ConCommand alias_name##_command(&alias_name##_ref, COMMAND_PREFIX #alias_name, alias_name##_con_callback,                                   \
+									description, FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND);
