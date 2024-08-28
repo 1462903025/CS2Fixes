@@ -124,3 +124,4 @@ void ParseChatCommand(const char *, CCSPlayerController *);
 	void name##_callback(const CCommand &args, CCSPlayerController *player)
 
 #define CON_COMMAND_CHAT(name, description) CON_COMMAND_CHAT_FLAGS(name, description, ADMFLAG_NONE)
+#define nominate yd
