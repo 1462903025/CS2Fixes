@@ -124,3 +124,11 @@ void ParseChatCommand(const char *, CCSPlayerController *);
 	void name##_callback(const CCommand &args, CCSPlayerController *player)
 
 #define CON_COMMAND_CHAT(name, description) CON_COMMAND_CHAT_FLAGS(name, description, ADMFLAG_NONE)
+
+void yd_callback(const CCommand& args, CCSPlayerController* player)
+{
+	// 调用 nominate 的回调函数，传入相同的参数
+	nominate_callback(args, player);
+}
+
+// Use the define to create the new command
