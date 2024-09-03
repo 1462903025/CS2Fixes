@@ -589,21 +589,21 @@ CON_COMMAND_CHAT(defend, "[\xE5\x90\x8D\xE5\xAD\x97|\xE6\x8C\x81\xE7\xBB\xAD\xE6
 
 			if (pTarget->m_iTeamNum != CS_TEAM_CT)
 			{
-				ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You can only place defend marker on a human.");
+				ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE4\xBD\xA0\xE5\x8F\xAA\xE8\x83\xBD\xE5\x9C\xA8\xE4\xBA\xBA\xE8\xBA\xAB\xE4\xB8\x8A\xE6\x94\xBE\xE7\xBD\xAE\xE9\x98\xB2\xE5\xBE\xA1\xE6\xA0\x87\xE8\xAE\xB0.");
 				return;
 			}
 
 			ZEPlayer* pTargetPlayer = g_playerManager->GetPlayer(pSlot[0]);
 
 			if (Leader_CreateDefendMarker(pTargetPlayer, LeaderColorMap[pPlayer->GetLeaderIndex()].clColor, 30))
-				ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Placed defend marker on %s lasting 30 seconds.", pTarget->GetPlayerName());
+				ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX " %s \xE6\x94\xBE\xE7\xBD\xAE\xE4\xBA\x86\xE9\x98\xB2\xE5\xBE\xA1\xE6\xA0\x87\xE8\xAE\xB0\xEF\xBC\x8C\xE6\x8C\x81\xE7\xBB\xAD\x33\x30\xE7\xA7\x92.", pTarget->GetPlayerName());
 
 			return;
 		}
 
 		if (player->m_iTeamNum != CS_TEAM_CT)
 		{
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You can only place defend marker on a human.");
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE4\xBD\xA0\xE5\x8F\xAA\xE8\x83\xBD\xE5\x9C\xA8\xE4\xBA\xBA\xE8\xBA\xAB\xE4\xB8\x8A\xE6\x94\xBE\xE7\xBD\xAE\xE9\x98\xB2\xE5\xBE\xA1\xE6\xA0\x87\xE8\xAE\xB0.");
 			return;
 		}
 
@@ -618,14 +618,14 @@ CON_COMMAND_CHAT(defend, "[\xE5\x90\x8D\xE5\xAD\x97|\xE6\x8C\x81\xE7\xBB\xAD\xE6
 		if (iArg1 < 1)
 		{
 			if (Leader_CreateDefendMarker(pPlayer, LeaderColorMap[pPlayer->GetLeaderIndex()].clColor, 30))
-				ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Placed defend marker on yourself lasting 30 seconds.");
+				ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\x9C\xA8\xE8\x87\xAA\xE5\xB7\xB1\xE8\xBA\xAB\xE4\xB8\x8A\xE6\x94\xBE\xE7\xBD\xAE\xE9\x98\xB2\xE5\xBE\xA1\xE6\xA0\x87\xE8\xAE\xB0\xEF\xBC\x8C\xE6\x8C\x81\xE7\xBB\xAD\x33\x30\xE7\xA7\x92.");
 
 			return;
 		}
 		iArg1 = MIN(iArg1, 60);
 
 		if (Leader_CreateDefendMarker(pPlayer, LeaderColorMap[pPlayer->GetLeaderIndex()].clColor, iArg1))
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Placed defend marker on yourself lasting %i seconds.", iArg1);
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\x9C\xA8\xE8\x87\xAA\xE5\xB7\xB1\xE8\xBA\xAB\xE4\xB8\x8A\xE6\x94\xBE\xE7\xBD\xAE\xE9\x98\xB2\xE5\xBE\xA1\xE6\xA0\x87\xE8\xAE\xB0\xEF\xBC\x8C\xE6\x8C\x81\xE7\xBB\xAD %i \xE7\xA7\x92.", iArg1);
 
 		return;
 	}
@@ -658,7 +658,7 @@ CON_COMMAND_CHAT(defend, "[\xE5\x90\x8D\xE5\xAD\x97|\xE6\x8C\x81\xE7\xBB\xAD\xE6
 	if (iArg2 < 1) // assume it's not a valid number
 	{
 		if (Leader_CreateDefendMarker(pTargetPlayer, LeaderColorMap[pPlayer->GetLeaderIndex()].clColor, 30))
-			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Placed defend marker on %s lasting 30 seconds.", pTarget->GetPlayerName());
+			ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\x9C\xA8 %s \xE4\xB8\x8A\xE6\x94\xBE\xE7\xBD\xAE\xE9\x98\xB2\xE5\xBE\xA1\xE6\xA0\x87\xE8\xAE\xB0\xEF\xBC\x8C\xE6\x8C\x81\xE7\xBB\xAD\x33\x30\xE7\xA7\x92.", pTarget->GetPlayerName());
 
 		return;
 	}
@@ -666,7 +666,7 @@ CON_COMMAND_CHAT(defend, "[\xE5\x90\x8D\xE5\xAD\x97|\xE6\x8C\x81\xE7\xBB\xAD\xE6
 	iArg2 = MIN(iArg2, 60);
 
 	if (Leader_CreateDefendMarker(pTargetPlayer, LeaderColorMap[pPlayer->GetLeaderIndex()].clColor, iArg2))
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Placed defend marker on %s lasting %i seconds.", pTarget->GetPlayerName(), iArg2);
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\x9C\xA8 %s \xE4\xB8\x8A\xE6\x94\xBE\xE7\xBD\xAE\xE9\x98\xB2\xE5\xBE\xA1\xE6\xA0\x87\xE8\xAE\xB0\xEF\xBC\x8C\xE6\x8C\x81\xE7\xBB\xAD %i \xE7\xA7\x92.", pTarget->GetPlayerName(), iArg2);
 }
 
 CON_COMMAND_CHAT(tracer, "<name> [color] - toggle projectile tracers on a player")
@@ -686,7 +686,7 @@ CON_COMMAND_CHAT(tracer, "<name> [color] - toggle projectile tracers on a player
 
 	if (!pPlayer->IsLeader())
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You must be a leader to use this command.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x82\xA8\xE5\xBF\x85\xE9\xA1\xBB\xE6\x98\xAF\xE6\x8C\x87\xE6\x8C\xA5\xE6\x89\x8D\xE8\x83\xBD\xE4\xBD\xBF\xE7\x94\xA8\xE6\xAD\xA4\xE5\x91\xBD\xE4\xBB\xA4.");
 		return;
 	}
 
@@ -844,7 +844,7 @@ CON_COMMAND_CHAT(beacon, "<name> [color] - toggle beacon on a player")
 
 	if (!pPlayer->IsLeader())
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You must be a Leader or an Admin to use this command.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x82\xA8\xE5\xBF\x85\xE9\xA1\xBB\xE6\x98\xAF\xE6\x8C\x87\xE6\x8C\xA5\xE6\x88\x96\xE7\xAE\xA1\xE7\x90\x86\xE5\x91\x98\xE6\x89\x8D\xE8\x83\xBD\xE4\xBD\xBF\xE7\x94\xA8\xE6\xAD\xA4\xE5\x91\xBD\xE4\xBB\xA4.");
 		return;
 	}
 

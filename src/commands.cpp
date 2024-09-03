@@ -208,7 +208,7 @@ void ParseWeaponCommand(const CCommand& args, CCSPlayerController* player)
 
 	player->m_pInGameMoneyServices->m_iAccount = money - weaponEntry.iPrice;
 	pItemServices->GiveNamedItem(weaponEntry.szClassName);
-	ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX"You have purchased %s for $%i", weaponEntry.szWeaponName, weaponEntry.iPrice);
+	ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX"\xE6\x82\xA8\xE5\xB7\xB2\xE8\xB4\xAD\xE4\xB9\xB0 %s \xE8\x8A\xB1\xE8\xB4\xB9\xE4\xBA\x86 $%i", weaponEntry.szWeaponName, weaponEntry.iPrice);
 }
 
 void WeaponCommandCallback(const CCommandContext& context, const CCommand& args)
