@@ -416,14 +416,14 @@ CON_COMMAND_CHAT(glow, "<name> [duration] - toggle glow highlight on a player")
 	}
 }
 
-CON_COMMAND_CHAT(vl, "<name> - Vote for a player to become a leader")
+CON_COMMAND_CHAT(vl, "<name> - \xE6\x8A\x95\xE7\xA5\xA8\xE9\x80\x89\xE5\x87\xBA\xE4\xB8\x80\xE5\x90\x8D\xE7\x8E\xA9\xE5\xAE\xB6\xE6\x88\x90\xE4\xB8\xBA\xE6\x8C\x87\xE6\x8C\xA5\xEF\xBC\x88\x40\x6D\x65\x20\xE6\x8A\x95\xE7\xBB\x99\xE8\x87\xAA\xE5\xB7\xB1\xEF\xBC\x89")
 {
 	if (!g_bEnableLeader)
 		return;
 
 	if (!player)
 	{
-		ClientPrint(player, HUD_PRINTCONSOLE, CHAT_PREFIX "You cannot use this command from the server console.");
+		ClientPrint(player, HUD_PRINTCONSOLE, CHAT_PREFIX "\xE6\x82\xA8\xE6\x97\xA0\xE6\xB3\x95\xE4\xBB\x8E\xE6\x9C\x8D\xE5\x8A\xA1\xE5\x99\xA8\xE6\x8E\xA7\xE5\x88\xB6\xE5\x8F\xB0\xE4\xBD\xBF\xE7\x94\xA8\xE6\xAD\xA4\xE5\x91\xBD\xE4\xBB\xA4.");
 		return;
 	}
 
@@ -449,19 +449,19 @@ CON_COMMAND_CHAT(vl, "<name> - Vote for a player to become a leader")
 	ETargetType nTargetType = g_playerManager->TargetPlayerString(iPlayerSlot, args[1], iNumClients, pSlot);
 	if (nTargetType > ETargetType::SELF)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You must target a specific player.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE4\xBD\xA0\xE5\xBF\x85\xE9\xA1\xBB\xE7\x9E\x84\xE5\x87\x86\xE4\xB8\x80\xE4\xB8\xAA\xE7\x89\xB9\xE5\xAE\x9A\xE7\x9A\x84\xE7\x8E\xA9\xE5\xAE\xB6.");
 		return;
 	}
 
 	if (!iNumClients)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "Target not found.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE6\x9C\xAA\xE6\x89\xBE\xE5\x88\xB0\xE7\x9B\xAE\xE6\xA0\x87.");
 		return;
 	}
 
 	if (iNumClients > 1)
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "More than one player fit the target name.");
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE5\xA4\x9A\xE4\xB8\xAA\xE7\x8E\xA9\xE5\xAE\xB6\xE7\xAC\xA6\xE5\x90\x88\xE7\x9B\xAE\xE6\xA0\x87\xE5\x90\x8D\xE7\xA7\xB0.");
 		return;
 	}
 
@@ -474,13 +474,13 @@ CON_COMMAND_CHAT(vl, "<name> - Vote for a player to become a leader")
 
 	if (pPlayerTarget->IsLeader())
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "%s is already a Leader.", pTarget->GetPlayerName());
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "%s \xE7\x8E\xB0\xE5\x9C\xA8\xE6\x98\xAF\xE6\x8C\x87\xE6\x8C\xA5\xE4\xBA\x86.", pTarget->GetPlayerName());
 		return;
 	}
 
 	if (pPlayerTarget->HasPlayerVotedLeader(pPlayer))
 	{
-		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You have already voted for %s to become a leader.", pTarget->GetPlayerName());
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "\xE4\xBD\xA0\xE6\x8A\x95\xE7\xBB\x99\xE4\xBA\x86 %s \xE6\x88\x90\xE4\xB8\xBA\xE6\x8C\x87\xE6\x8C\xA5.", pTarget->GetPlayerName());
 		return;
 	}
 
@@ -515,7 +515,7 @@ CON_COMMAND_CHAT(vl, "<name> - Vote for a player to become a leader")
 	}
 
 	pPlayerTarget->AddLeaderVote(pPlayer);
-	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "%s wants %s to become a Leader (%i/%i votes).",\
+	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX "%s \xE5\xB8\x8C\xE6\x9C\x9B %s \xE6\x88\x90\xE4\xB8\xBA\xE6\x8C\x87\xE6\x8C\xA5 (%i/%i \xE7\xA5\xA8).",\
 				player->GetPlayerName(), pTarget->GetPlayerName(), iLeaderVoteCount+1, iNeededLeaderVoteCount);
 }
 

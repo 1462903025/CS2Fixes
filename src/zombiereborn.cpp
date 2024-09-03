@@ -1880,7 +1880,7 @@ CON_COMMAND_CHAT(zclass, "<teamname/class name/number> - find and select your Z:
 	ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX "No available classes matched \x10%s\x1.", args[1]);
 }
 
-CON_COMMAND_CHAT_FLAGS(infect, "infect a player", ADMFLAG_GENERIC)
+CON_COMMAND_CHAT_FLAGS(infect, "\xE6\x84\x9F\xE6\x9F\x93\xE7\x8E\xA9\xE5\xAE\xB6", ADMFLAG_GENERIC)
 {
 	// Silently return so the command is completely hidden
 	if (!g_bEnableZR)
@@ -1961,7 +1961,7 @@ CON_COMMAND_CHAT_FLAGS(infect, "infect a player", ADMFLAG_GENERIC)
 	}
 }
 
-CON_COMMAND_CHAT_FLAGS(revive, "revive a player", ADMFLAG_GENERIC)
+CON_COMMAND_CHAT_FLAGS(revive, "\xE5\xA4\x8D\xE6\xB4\xBB\xE7\x8E\xA9\xE5\xAE\xB6", ADMFLAG_GENERIC)
 {
 	// Silently return so the command is completely hidden
 	if (!g_bEnableZR)
